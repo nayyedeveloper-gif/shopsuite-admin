@@ -114,6 +114,18 @@ ShopSuite 开源商城管理端 基于Vue3 + Element Plus开发， 电商后台�
 
 ---
 
+
+### 🎬 源码下载：
+- 移动端/uniapp前端源码 [shopsuite-mobile](https://github.com/shsuishang/shopsuite-mobile)
+- 管理端VUE3前端源码 [shopsuite-admin](https://github.com/shsuishang/shopsuite-admin)
+- Java SpringBoot3 [Modulithshop-v3](https://github.com/shsuishang/modulithshop-v3-java)
+- Java SpringBoot2 [Modulithshop](https://github.com/shsuishang/modulithshop)
+- PHP [Kuteshop](https://github.com/shsuishang/kuteshop)
+- Golang Gf框架 [Golershop-Goframe](https://github.com/shsuishang/golershop)
+- Golang Gin框架 [Golershop-Gin](https://github.com/shsuishang/golershop-gin-mall)
+
+---
+
 ### 💟 UI界面
 
 #### 🔹 管理端截图
