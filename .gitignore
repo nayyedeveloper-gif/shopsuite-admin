@@ -45,3 +45,4 @@ public/video
 *.rar
 /.history
 tsconfig.tsbuildinfo
+/admin/

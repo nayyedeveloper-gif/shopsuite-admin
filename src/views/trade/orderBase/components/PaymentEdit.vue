@@ -16,7 +16,7 @@
     >
       <el-row v-if="false">
         <el-col :span="12">
-          <el-form-item label="预付款支付" prop="pm_money">
+          <el-form-item :label="t('预付款支付')" prop="pm_money">
             <el-input
               v-model="form.pm_money"
               clearable
@@ -26,7 +26,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="充值卡支付" prop="pm_recharge_card">
+          <el-form-item :label="t('充值卡支付')" prop="pm_recharge_card">
             <el-input
               v-model="form.pm_recharge_card"
               clearable
@@ -38,7 +38,7 @@
       </el-row>
       <el-row>
         <el-col :span="12">
-          <el-form-item label="付款金额" prop="deposit_total_fee">
+          <el-form-item :label="t('付款金额')" prop="deposit_total_fee">
             <el-input
               v-model="form.deposit_total_fee"
               clearable
@@ -48,7 +48,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="付款日期" prop="deposit_time">
+          <el-form-item :label="t('付款日期')" prop="deposit_time">
             <el-date-picker
               v-model="form.deposit_time"
               clearable
@@ -61,7 +61,7 @@
       </el-row>
       <el-row>
         <el-col :span="12">
-          <el-form-item label="支付凭证号" prop="deposit_trade_no">
+          <el-form-item :label="t('支付凭证号')" prop="deposit_trade_no">
             <el-input
               v-model="form.deposit_trade_no"
               clearable
@@ -71,7 +71,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="收款账户" prop="payment_channel_id">
+          <el-form-item :label="t('收款账户')" prop="payment_channel_id">
             <el-select
               v-model="form.payment_channel_id"
               clearable
@@ -91,7 +91,7 @@
         </el-col>
       </el-row>
       <el-row>
-        <el-form-item label="备注" prop="trade_remark">
+        <el-form-item :label="t('备注')" prop="trade_remark">
           <el-input
             v-model="form.trade_remark"
             clearable

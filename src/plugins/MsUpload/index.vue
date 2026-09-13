@@ -10,7 +10,7 @@
       <el-alert
         v-if="false"
         :closable="false"
-        :title="`支持jpg、jpeg、png格式，单次可最多选择${limit}张图片，每张不可大于${size}M，如果大于${size}M会自动为您过滤`"
+        :title="t('支持jpg、jpeg、png格式，单次可最多选择${limit}张图片，每张不可大于${size}M，如果大于${size}M会自动为您过滤', {limit: limit, size: size})"
         type="info"
       />
       <div>
@@ -45,7 +45,7 @@
           <template #trigger>
             <ms-icon icon="add-line"/>
           </template>
-          <el-dialog v-model="dialogVisible" append-to-body title="查看大图">
+          <el-dialog v-model="dialogVisible" append-to-body :title="t('查看大图')">
             <div>
               <el-image :src="dialogImageUrl"/>
             </div>
@@ -76,7 +76,7 @@
           :on-success="handleSuccess"
         >
           <el-button size="normal" type="primary">
-            选取文件
+            {{ t('选取文件') }}
           </el-button>
         </el-upload>
       </div>
@@ -108,7 +108,7 @@
           :on-success="handleSuccess"
         >
           <el-button size="normal" type="primary">
-            选取文件
+            {{ t('选取文件') }}
           </el-button>
         </el-upload>
       </div>
@@ -141,7 +141,7 @@
           :on-success="handleSuccess"
         >
           <el-button size="normal" type="primary">
-            选取文件
+            {{ t('选取文件') }}
           </el-button>
         </el-upload>
       </div>
@@ -151,17 +151,17 @@
         v-if="show"
         style="position: absolute; top: 10px; left: 15px; color: #999"
       >
-        正在上传中... 当前上传成功数:{{ imgSuccessNum }} 当前上传失败数:{{
+        {{ t('正在上传中...') }} {{ t('当前上传成功数:') }}{{ imgSuccessNum }} {{ t('当前上传失败数:') }}
           imgErrorNum
         }}
       </div>
-      <el-button type="primary" @click="onClose">关闭</el-button>
+      <el-button type="primary" @click="onClose">{{ t('关闭') }}</el-button>
       <el-button
         style="margin-left: 10px"
         type="success"
         @click="onClose"
       >
-        确定
+        {{ t('确定') }}
       </el-button>
       <el-button
         v-if="false"
@@ -170,7 +170,7 @@
         type="success"
         @click="onSave"
       >
-        开始上传
+        {{ t('开始上传') }}
       </el-button>
     </template>
   </el-dialog>
@@ -231,7 +231,7 @@ export default defineComponent({
       imgSuccessNum: 0,
       imgErrorNum: 0,
       typeList: null,
-      title: '上传',
+      title: t('上传'),
       dialogFormVisible: false,
       params: {
         gallery_id: 0,
@@ -274,7 +274,7 @@ export default defineComponent({
         if (fileList.length === state.imgNum) {
           setTimeout(() => {
             $message(
-              `上传完成! 共上传 ${fileList.length}`,
+              t('上传完成! 共上传') + ' ' + fileList.length,
               'success',
               'ms-hey-message-success'
             )
@@ -291,10 +291,10 @@ export default defineComponent({
         state.imgNum = state.imgNum + 1
         state.imgErrorNum = state.imgErrorNum + 1
         $message(
-          `文件[${file.raw.name}]上传失败,文件大小为${_.round(
+          t('文件') + '[' + file.raw.name + ']' + t('上传失败,文件大小为') + _.round(
             file.raw.size / 1024,
             0
-          )}KB`,
+          ) + 'KB',
           'error',
           'ms-hey-message-error'
         )
@@ -311,10 +311,10 @@ export default defineComponent({
       state.imgNum = state.imgNum + 1
       state.imgErrorNum = state.imgErrorNum + 1
       $message(
-        `文件[${file.raw.name}]上传失败,文件大小为${_.round(
+        t('文件') + '[' + file.raw.name + ']' + t('上传失败,文件大小为') + _.round(
           file.raw.size / 1024,
           0
-        )}KB`,
+        ) + 'KB',
         'error',
         'ms-hey-message-error'
       )
@@ -333,15 +333,13 @@ export default defineComponent({
     }
     const handleExceed = (files) => {
       $message(
-        `当前限制选择 ${state.limit} 个文件，本次选择了
-                  ${files.length}
-                  个文件`,
+        t('当前限制选择') + ' ' + state.limit + ' ' + t('个文件，本次选择了') + ' ' + files.length + ' ' + t('个文件'),
         'error',
         'ms-hey-message-error'
       )
     }
     const handleShow = (data) => {
-      state.title = '上传'
+      state.title = t('上传')
       state.data = data
       state.dialogFormVisible = true
     }

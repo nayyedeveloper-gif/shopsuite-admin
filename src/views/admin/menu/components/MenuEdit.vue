@@ -4,7 +4,7 @@
     custom-class="ele-dialog-form"
     :destroy-on-close="true"
     :lock-scroll="false"
-    :title="isUpdate?'修改菜单':'添加菜单'"
+    :title="isUpdate?t('修改菜单'):t('添加菜单')"
     width="750px"
     @close="close">
     <el-form
@@ -14,7 +14,7 @@
       :rules="rules">
       <el-row :gutter="15">
         <el-col :sm="12">
-          <el-form-item label="上级菜单:">
+          <el-form-item :label="t('上级菜单')+':'">
             <el-tree-select
               v-model="form.menu_parent_id"
               check-strictly
@@ -22,30 +22,30 @@
               :default-expand-all="isExpandTreeSelect"
               highlight-current
               node-key="menu_id"
-              placeholder="请选择上级菜单"
+              :placeholder="t('请选择上级菜单')"
               :props="{ value: 'menu_id', label: 'menu_title'}"
               style="width: 100%"
               value-key="menu_title"
             />
           </el-form-item>
-          <el-form-item label="菜单名称:">
+          <el-form-item :label="t('菜单名称')+':'">
             <el-input
               v-model="form.menu_title"
               clearable
-              placeholder="请输入菜单名称"/>
+              :placeholder="t('请输入菜单名称')"/>
           </el-form-item>
         </el-col>
         <el-col :sm="12">
-          <el-form-item label="菜单类型:">
+          <el-form-item :label="t('菜单类型')+':'">
             <el-radio-group
               v-model="form.menu_type"
               @change="onMenuTypeChange">
-              <el-radio :label="0">按钮</el-radio>
-              <el-radio :label="1">菜单</el-radio>
+              <el-radio :label="0">{{t('按钮')}}</el-radio>
+              <el-radio :label="1">{{t('菜单')}}</el-radio>
             </el-radio-group>
           </el-form-item>
 
-          <el-form-item label="菜单图标:">
+          <el-form-item :label="t('菜单图标')+':'">
             <el-popover
               popper-class="icon-selector-popper"
               trigger="click"
@@ -57,14 +57,14 @@
               <ms-icon-selector @handle-icon="handleIcon" />
             </el-popover>
           </el-form-item>
-          <el-form-item v-if="false" label="打开方式:"> <!-- 需要控制menu_path内容是否为网址 -->
+          <el-form-item v-if="false" :label="t('打开方式')+':'"> <!-- 需要控制menu_path内容是否为网址 -->
             <el-radio-group
               v-model="form.menu_redirect"
               :disabled="form.menu_type === 0"
               @change="onTargetChange">
-              <el-radio :label="''">组件</el-radio>
-              <el-radio v-if="false" :label="1">内链</el-radio>
-              <el-radio v-if="false" :label="2">外链</el-radio>
+              <el-radio :label="''">{{t('组件')}}</el-radio>
+              <el-radio v-if="false" :label="1">{{t('内链')}}</el-radio>
+              <el-radio v-if="false" :label="2">{{t('外链')}}</el-radio>
             </el-radio-group>
           </el-form-item>
         </el-col>
@@ -78,100 +78,100 @@
             <template #label>
               <el-tooltip
                 v-if="form.menu_redirect === 2"
-                content="需要以`http://`、`https://`、`//`开头"
+                :content="t('需要以`http://`、`https://`、`//`开头')"
                 placement="top">
                 <i class="el-icon-_question"></i>
               </el-tooltip>
-              <span>{{ form.menu_redirect === 2 ? ' 外链地址:' : ' 路由地址:' }}</span>
+              <span>{{ form.menu_redirect === 2 ? ' '+t('外链地址')+':' : ' '+t('路由地址')+':' }}</span>
             </template>
             <el-input
               v-model="form.menu_path"
               clearable
               :disabled="form.menu_type===0"
-              :placeholder="form.menu_redirect === 2 ? '请输入外链地址' : '请输入路由地址'"/>
+              :placeholder="form.menu_redirect === 2 ? t('请输入外链地址') : t('请输入路由地址')"/>
           </el-form-item>
           <el-form-item name="component">
             <template #label>
               <el-tooltip
                 v-if="form.menu_redirect === 1"
-                content="需要以`http://`、`https://`、`//`开头"
+                :content="t('需要以`http://`、`https://`、`//`开头')"
                 placement="top">
                 <i class="el-icon-_question"></i>
               </el-tooltip>
-              <span>{{ form.menu_redirect === 1 ? ' 内链地址:' : ' 组件路径:' }}</span>
+              <span>{{ form.menu_redirect === 1 ? ' '+t('内链地址')+':' : ' '+t('组件路径')+':' }}</span>
             </template>
             <el-input
               v-model="form.menu_component"
               clearable
               :disabled="form.menu_type === 0 || form.menu_redirect === 2"
-              :placeholder="form.menu_redirect === 1 ? '请输入内链地址' : '请输入组件路径'"/>
+              :placeholder="form.menu_redirect === 1 ? t('请输入内链地址') : t('请输入组件路径')"/>
           </el-form-item>
-          <el-form-item label="菜单标签:">
+          <el-form-item :label="t('菜单标签')+':'">
             <el-input
               v-model="form.menu_bubble"
               clearable
               :disabled="form.menu_type === 0"
-              placeholder="请输入菜单标签"/>
+              :placeholder="t('请输入菜单标签')"/>
           </el-form-item>
         </el-col>
         <el-col :sm="12">
-          <el-form-item label="组件名称:">
+          <el-form-item :label="t('组件名称')+':'">
             <el-input
               v-model="form.menu_name"
               clearable
               :disabled="form.menu_type === 0"
-              placeholder="请输入组件名称"/>
+              :placeholder="t('请输入组件名称')"/>
           </el-form-item>
-          <el-form-item label="权限标识:">
+          <el-form-item :label="t('权限标识')+':'">
             <el-input
               v-model="form.menu_permission"
               clearable
               :disabled="form.menu_type === 1"
-              placeholder="请输入权限标识"/>
+              :placeholder="t('请输入权限标识')"/>
           </el-form-item>
-          <el-form-item label="排序号:" prop="sort">
+          <el-form-item :label="t('排序号')+':'" prop="sort">
             <el-input-number
               v-model="form.menu_sort"
               class="ele-fluid ele-text-left"
               controls-position="right"
               :min="0"
-              placeholder="请输入排序号"/>
+              :placeholder="t('请输入排序号')"/>
           </el-form-item>
         </el-col>
       </el-row>
 
       <el-row :gutter="24">
         <el-col :sm="6">
-          <el-form-item label="显示红点:">
+          <el-form-item :label="t('显示红点')+':'">
             <el-switch v-model="form.menu_dot" :disabled="form.menu_type === 0" />
           </el-form-item>
         </el-col>
         <el-col :sm="6">
-          <el-form-item label="是否隐藏:">
+          <el-form-item :label="t('是否隐藏')+':'">
             <el-switch v-model="form.menu_hidden" :disabled="form.menu_type === 0"  />
           </el-form-item>
         </el-col>
         <el-col :sm="6">
-          <el-form-item label="允许关闭:">
+          <el-form-item :label="t('允许关闭')+':'">
             <el-switch v-model="form.menu_close" :disabled="form.menu_type === 0" />
           </el-form-item>
         </el-col>
         <el-col :sm="6"/>
       </el-row>
-      <el-form-item v-if="false && form.menu_type==1" label="权限节点:">
+      <el-form-item v-if="false && form.menu_type==1" :label="t('权限节点')+':'">
         <el-transfer
           v-model="form.checkedList"
           :data="permissionList"
           style="height: 200px"
-          :titles="['全部节点', '已赋予节点']"
+          :titles="[t('全部节点'), t('已赋予节点')]"
         />
       </el-form-item>
-      <el-form-item label="备注:">
+      <el-form-item :label="t('备注')+':'">
         <el-input
           v-model="form.menu_note"
           clearable
           :maxlength="200"
-          placeholder="请输入备注"
+          :placeholder="t('请输入备注')"
           :rows="1"
           type="textarea"/>
       </el-form-item>
@@ -221,59 +221,59 @@ export default defineComponent({
       permissionList: [
         {
           key: 1,
-          label: `查询`,
+          label: t('查询'),
         },
         {
           key: 5,
-          label: `添加`,
+          label: t('添加'),
         },
         {
           key: 10,
-          label: `修改`,
+          label: t('修改'),
         },
         {
           key: 15,
-          label: `删除`,
+          label: t('删除'),
         },
         {
           key: 20,
-          label: `详情`,
+          label: t('详情'),
         },
         {
           key: 25,
-          label: `状态`,
+          label: t('状态'),
         },
         {
           key: 30,
-          label: `批量删除`,
+          label: t('批量删除'),
         },
         {
           key: 35,
-          label: `添加子级`,
+          label: t('添加子级'),
         },
         {
           key: 40,
-          label: `全部展开`,
+          label: t('全部展开'),
         },
         {
           key: 45,
-          label: `全部折叠`,
+          label: t('全部折叠'),
         },
         {
           key: 50,
-          label: `导出数据`,
+          label: t('导出数据'),
         },
         {
           key: 55,
-          label: `导入数据`,
+          label: t('导入数据'),
         },
         {
           key: 60,
-          label: `分配权限`,
+          label: t('分配权限'),
         },
         {
           key: 65,
-          label: `重置密码`,
+          label: t('重置密码'),
         }
       ],
       isExpandTreeSelect:true,

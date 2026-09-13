@@ -8,17 +8,17 @@
           <el-form v-for="(subItem,val) in item.items" :key="val" ref="formRef" label-width="150px" :model="form">
             <!-- 只读文本框 -->
             <el-form-item v-if="subItem.config_datatype=='readonly'" :label="subItem.config_title+''" :prop="subItem.config_key">
-              <el-input v-model="form[subItem.config_key]" disabled :placeholder="'请输入'+subItem.config_title"/>
+              <el-input v-model="form[subItem.config_key]" disabled :placeholder="t('请输入')+subItem.config_title"/>
               <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
             </el-form-item>
             <!-- 单行文本框 -->
             <el-form-item v-if="subItem.config_datatype=='text'" :label="subItem.config_title+''" :prop="subItem.config_key">
-              <el-input v-model="form[subItem.config_key]" clearable :placeholder="'请输入'+subItem.config_title"/>
+              <el-input v-model="form[subItem.config_key]" clearable :placeholder="t('请输入')+subItem.config_title"/>
               <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
             </el-form-item>
             <!-- 多行文本框 -->
             <el-form-item v-if="subItem.config_datatype=='textarea'" :label="subItem.config_title+''" :prop="subItem.config_key">
-              <el-input v-model="form[subItem.config_key]" :placeholder="'请输入'+subItem.config_title" :rows="3" type="textarea"/>
+              <el-input v-model="form[subItem.config_key]" :placeholder="t('请输入')+subItem.config_title" :rows="3" type="textarea"/>
               <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
             </el-form-item>
             <!-- 单图上传 -->
@@ -75,7 +75,7 @@
               <el-date-picker
                 v-model="form[subItem.config_key]"
                 format="yyyy-MM-dd"
-                :placeholder="'请选择'+subItem.config_title"
+                :placeholder="t('请选择')+subItem.config_title"
                 size="small"
                 type="date"
                 value-format="yyyy-MM-dd"/>
@@ -86,7 +86,7 @@
               <el-date-picker
                 v-model="form[subItem.config_key]"
                 format="yyyy-MM-dd HH:mm:ss"
-                :placeholder="'请选择'+subItem.config_title"
+                :placeholder="t('请选择')+subItem.config_title"
                 size="small"
                 type="datetime"
                 value-format="yyyy-MM-dd HH:mm:ss"/>
@@ -104,13 +104,13 @@
               <div>
                 <el-input-number
                   v-model="form[subItem.config_key]" class="ele-fluid ele-text-left" controls-position="right"
-                  :min="0" :placeholder="'请输入'+subItem.config_title" :style="{ width: '160px' }"/>
+                  :min="0" :placeholder="t('请输入')+subItem.config_title" :style="{ width: '160px' }"/>
                 <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
               </div>
             </el-form-item>
             <!-- 密码输入框 -->
             <el-form-item v-if="subItem.config_datatype=='password'" :label="subItem.config_title+''" :prop="subItem.config_key">
-              <el-input v-model="form[subItem.config_key]" :placeholder="'请输入'+subItem.config_title" show-password/>
+              <el-input v-model="form[subItem.config_key]" :placeholder="t('请输入')+subItem.config_title" show-password/>
               <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
             </el-form-item>
             <!-- 复选框 -->
@@ -122,7 +122,7 @@
             </el-form-item>
             <!-- 下拉单选框 -->
             <el-form-item v-if="subItem.config_datatype=='select'" :label="subItem.config_title+''" :prop="subItem.config_key">
-              <el-select v-model="form[subItem.config_key]" class="ele-block" clearable :placeholder="'请选择'+subItem.config_title">
+              <el-select v-model="form[subItem.config_key]" class="ele-block" clearable :placeholder="t('请选择')+subItem.config_title">
                 <el-option v-for="(iv,key) in subItem.optionsList" :key="key" :label="iv" :value="key"/>
               </el-select>
               <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
@@ -138,7 +138,7 @@
             </el-form-item>
             <!-- 图标 -->
             <el-form-item v-if="subItem.config_datatype=='icon'" :label="subItem.config_title+''">
-              <ele-icon-picker v-model="form[subItem.config_key]" :placeholder="'请选择'+subItem.config_title"/>
+              <ele-icon-picker v-model="form[subItem.config_key]" :placeholder="t('请选择')+subItem.config_title"/>
               <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
             </el-form-item>
             <!-- 地区 -->
@@ -149,7 +149,7 @@
                   clearable
                   filterable
                   :options="areaOptions"
-                  :placeholder="'请选择'+subItem.config_title"
+                  :placeholder="t('请选择')+subItem.config_title"
                   :props="{ label: 'district_name', value: 'district_id' }"
                 />
                 <p v-if="subItem.config_note" class="help-block" v-html="subItem.config_note"></p>
