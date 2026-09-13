@@ -447,6 +447,10 @@ const url = {
       editReview: api + '/manage/pay/consumeDeposit/editReview',
       remove: api + '/manage/pay/consumeDeposit/remove',
       doRemoveBatch: api + '/manage/pay/consumeDeposit/removeBatch',
+      // Myanmar payment endpoints (front API)
+      mmqrPay: api + '/front/pay/consumeDeposit/mmqrPay',
+      mmpayPay: api + '/front/pay/consumeDeposit/mmpayPay',
+      mmqrStaticQr: api + '/front/pay/mmqr/staticQr',
     },
     consumeRecord: {
       list: api + '/manage/pay/consumeRecord/list',

@@ -57,3 +57,28 @@ export function editReview(data: any) {
   })
 }
 
+// Myanmar QR payments
+export function doMmqrPay(data: any) {
+  return request({
+    url: URL.pay.consumeDeposit.mmqrPay,
+    method: 'post',
+    data,
+  })
+}
+
+export function doMmpayPay(data: any) {
+  return request({
+    url: URL.pay.consumeDeposit.mmpayPay,
+    method: 'post',
+    data,
+  })
+}
+
+export function getMmqrStaticQr(params: any) {
+  return request({
+    url: URL.pay.consumeDeposit.mmqrStaticQr,
+    method: 'get',
+    params,
+  })
+}
+
