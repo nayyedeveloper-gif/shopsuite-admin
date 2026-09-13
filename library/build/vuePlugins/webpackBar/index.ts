@@ -2,9 +2,7 @@ const WebpackBar = require('webpackbar')
 const { version } = require('../../../../package.json')
 
 module.exports = {
-  createWebpackBar: () => [
-    new WebpackBar({
-      name: `ShopSuite ${version}`,
-    }),
-  ],
+  // Webpack 5 ProgressPlugin schema rejects webpackbar's legacy options; skip in local run.
+  createWebpackBar: () => [],
 }
+

@@ -2,7 +2,7 @@ import { gp } from '@gp'
 
 function clipboardSuccess(text: any) {
   gp.$message(
-    `拷贝${text}成功`,
+    `Copied ${text}`,
     'success',
     'ms-hey-message-success',
     false
@@ -10,7 +10,7 @@ function clipboardSuccess(text: any) {
 }
 
 function clipboardError(text: any) {
-  gp.$message(`拷贝${text}失败`, 'error', 'ms-hey-message-success', false)
+  gp.$message(`Failed to copy ${text}`, 'error', 'ms-hey-message-success', false)
 }
 
 /**

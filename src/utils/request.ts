@@ -17,6 +17,28 @@ let refreshToking = false
 
 let requests: (() => void)[] = []
 
+/** Map common Chinese API messages to English for English-first admin UI */
+const apiMsgEn: Record<string, string> = {
+  '操作成功': 'Success',
+  '操作失败': 'Operation failed',
+  '操作正常': 'Success',
+  '非法参数': 'Invalid parameter',
+  '参数错误': 'Invalid parameter',
+  '未登录': 'Not logged in',
+  '登录失败': 'Login failed',
+  '权限不足': 'Insufficient permissions',
+  '数据不存在': 'Data not found',
+  '网络异常': 'Network error',
+  '系统错误': 'System error',
+  '验证码错误': 'Invalid captcha',
+  '用户名或密码错误': 'Incorrect username or password',
+}
+
+function localizeApiMsg(msg: unknown) {
+  if (typeof msg !== 'string' || !msg) return msg
+  return apiMsgEn[msg] || msg
+}
+
 /**
  * axios请求拦截器配置
  * @param config
@@ -128,25 +150,25 @@ const handleData = async ({ config, data, status, statusText }: any) => {
   }
   // 异常处理
   const codeMap: any = {
-    200: '服务器成功返回请求数据',
-    201: '新建或修改数据成功',
-    202: '一个请求已经进入后台排队(异步任务)',
-    204: '删除数据成功',
-    400: '发出信息有误',
-    401: '用户没有权限(令牌失效、用户名、密码错误、登录过期)',
-    402: '令牌过期',
-    403: '用户得到授权，但是访问是被禁止的',
-    404: '访问资源不存在',
-    406: '请求格式不可得',
-    410: '请求资源被永久删除，且不会被看到',
-    500: '服务器发生错误',
-    502: '网关错误',
-    503: '服务不可用，服务器暂时过载或维护',
-    504: '网关超时',
+    200: 'Request succeeded',
+    201: 'Created or updated successfully',
+    202: 'Request accepted (async task queued)',
+    204: 'Deleted successfully',
+    400: 'Bad request',
+    401: 'Unauthorized (invalid token, credentials, or expired session)',
+    402: 'Token expired',
+    403: 'Forbidden',
+    404: 'Resource not found',
+    406: 'Not acceptable',
+    410: 'Resource permanently deleted',
+    500: 'Internal server error',
+    502: 'Bad gateway',
+    503: 'Service unavailable',
+    504: 'Gateway timeout',
   }
   const errMsg = `${
-    data && data['msg']
-      ? data['msg']
+    data && (data['msg'] || data['message'])
+      ? localizeApiMsg(data['msg'] || data['message'])
       : codeMap[code]
       ? codeMap[code]
       : statusText
@@ -186,7 +208,7 @@ instance.interceptors.response.use(
     if (response === undefined) {
       if (loadingInstance) loadingInstance.close()
       gp.$message(
-        '连接后台接口失败，可能由以下原因造成：后端不支持跨域CORS、接口地址不存在、请求超时等，请联系管理员排查后端接口问题 ',
+        'Failed to reach the API. Possible causes: CORS not enabled, invalid endpoint, or timeout. Please contact the administrator.',
         'error',
         'ms-hey-message-error',
         false

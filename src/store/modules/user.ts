@@ -18,8 +18,8 @@ import { gp } from '@gp'
 export const useUserStore = defineStore('user', {
   state: (): UserModuleType => ({
     token: getToken() as string,
-    username: '游客',
-    avatar: 'https://www.suteshop.cn/uploads/static/icon-s-default.png',
+    username: 'Guest',
+    avatar: '',
     roleId: 0,
     siteId: 0,
   }),
@@ -90,17 +90,17 @@ export const useUserStore = defineStore('user', {
         const hour = new Date().getHours()
         const thisTime =
           hour < 8
-            ? '早上好'
+            ? 'Good morning'
             : hour <= 11
-            ? '上午好'
+            ? 'Good morning'
             : hour <= 13
-            ? '中午好'
+            ? 'Good afternoon'
             : hour < 18
-            ? '下午好'
-            : '晚上好'
-        gp.$notify(`欢迎登录${settingsStore.title}`, `${thisTime}！`)
+            ? 'Good afternoon'
+            : 'Good evening'
+        gp.$notify(`Welcome to ${settingsStore.title}`, `${thisTime}!`)
       } else {
-        const err = `登录接口异常，未正确返回${tokenName}...`
+        const err = `Login failed: ${tokenName} was not returned by the API.`
         gp.$message(err, 'error', 'ms-hey-message-error')
         throw err
       }
@@ -188,7 +188,7 @@ export const useUserStore = defineStore('user', {
      */
     async resetAll() {
       this.setToken('')
-      this.setUsername('游客')
+      this.setUsername('Guest')
       this.setAvatar('https://www.suteshop.cn/uploads/static/icon-s-default.png')
 
       const aclStore = useAclStore()

@@ -6,6 +6,21 @@ import { globalPropertiesType } from '/#/library'
 
 export let gp: globalPropertiesType
 
+const uiMsgEn: Record<string, string> = {
+  操作成功: 'Success',
+  操作失败: 'Operation failed',
+  操作正常: 'Success',
+  非法参数: 'Invalid parameter',
+  温馨提示: 'Notice',
+  确定: 'OK',
+  取消: 'Cancel',
+}
+
+function localizeUiMsg(message: any) {
+  if (typeof message !== 'string') return message
+  return uiMsgEn[message] || message
+}
+
 export default {
   install(app: App<Element>) {
     gp = {
@@ -36,7 +51,7 @@ export default {
         dangerouslyUseHTMLString
       ) => {
         ElMessage({
-          message,
+          message: localizeUiMsg(message),
           type,
           customClass,
           duration: messageDuration,
@@ -50,13 +65,13 @@ export default {
        * @param {string} title 标题
        * @param {function} callback 若不使用Promise,可以使用此参数指定MessageBox关闭后的回调
        */
-      $alert: (content, title = '温馨提示', callback = undefined) => {
+      $alert: (content, title = 'Notice', callback = undefined) => {
         if (title && typeof title == 'function') {
           callback = title
-          title = '温馨提示'
+          title = 'Notice'
         }
-        ElMessageBox.alert(content, title, {
-          confirmButtonText: '确定',
+        ElMessageBox.alert(localizeUiMsg(content), localizeUiMsg(title), {
+          confirmButtonText: 'OK',
           dangerouslyUseHTMLString: true, // 此处可能引起跨站攻击，建议配置为false
           callback: () => {
             if (callback) callback()
@@ -77,12 +92,12 @@ export default {
         title,
         callback1,
         callback2,
-        confirmButtonText = '确定',
-        cancelButtonText = '取消'
+        confirmButtonText = 'OK',
+        cancelButtonText = 'Cancel'
       ) => {
-        ElMessageBox.confirm(content, title || '温馨提示', {
-          confirmButtonText,
-          cancelButtonText,
+        ElMessageBox.confirm(localizeUiMsg(content), localizeUiMsg(title) || 'Notice', {
+          confirmButtonText: localizeUiMsg(confirmButtonText),
+          cancelButtonText: localizeUiMsg(cancelButtonText),
           closeOnClickModal: false,
           type: 'warning',
           lockScroll: false,

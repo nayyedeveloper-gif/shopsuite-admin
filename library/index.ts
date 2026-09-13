@@ -22,7 +22,10 @@ export function setupMallSuite(app: App<Element>) {
 
     const Plugins = require.context('./plugins', true, /\.ts$/)
     Plugins.keys().forEach((key) => {
-      app.use(Plugins(key).default)
+      const plugin = Plugins(key).default
+      if (typeof plugin === 'function' || (plugin && typeof plugin.install === 'function')) {
+        app.use(plugin)
+      }
     })
   }
 }

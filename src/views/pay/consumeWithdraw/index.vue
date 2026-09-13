@@ -2,8 +2,8 @@
   <div class="consume-withdraw-container">
     <ms-search-box>
       <ms-search-box-left-panel :span="12">
-        <el-button v-if="false" v-permissions="{ permission: ['/manage/pay/consumeWithdraw/add'] }" :icon="Plus" type="primary" @click="handleEdit">
-          {{ t('添加') }}
+        <el-button :icon="Plus" type="primary" @click="handleApply">
+          {{ t('Apply withdraw') }}
         </el-button>
       </ms-search-box-left-panel>
       <ms-search-box-right-panel :span="12">
@@ -111,7 +111,7 @@
         width="100"
       >
         <template #default="{ row }">
-          <el-tag :type='(["","success"])[row.withdraw_mode]'>
+          <el-tag :type='(["info","success"])[row.withdraw_mode] || "info"'>
             {{ ([t('余额提现'),t('佣金提现')])[row.withdraw_mode] }}
           </el-tag>
         </template>
@@ -131,7 +131,7 @@
         width="100"
       >
         <template #default="{ row }">
-          <el-tag :type='(["warning","success","danger",""])[row.withdraw_state]'>
+          <el-tag :type='(["warning","success","danger","info"])[row.withdraw_state] || "info"'>
             {{ ([t('申请中'),t('提现通过'),t('驳回'),t('打款完成')])[row.withdraw_state] }}
           </el-tag>
         </template>
@@ -235,7 +235,7 @@
       />
       <el-table-column align="center" fixed="right" :label="t('操作')" width="100">
         <template #default="{ row }">
-          <el-button v-permissions="{ permission: ['/manage/pay/consumeWithdraw/edit'] }" :disabled="row.withdraw_state != 0" text @click="handleEdit(row)">{{ t('审核打款') }}</el-button>
+          <el-button v-permissions="{ permission: ['/manage/pay/consumeWithdraw/edit'] }" :disabled="row.withdraw_state != 0" text @click="handleEdit(row)">{{ t('Review') }}</el-button>
           <el-button v-if="false" v-permissions="{ permission: ['/manage/pay/consumeWithdraw/remove'] }" text @click="handleDelete(row)">{{ t('删除') }}</el-button>
         </template>
       </el-table-column>
@@ -253,6 +253,7 @@
       @size-change="handleSizeChange"
     />
     <edit ref="editRef" @fetch-data="fetchData"/>
+    <apply-form ref="applyRef" @fetch-data="fetchData"/>
   </div>
 </template>
 
@@ -260,19 +261,21 @@
   import { translate as t } from '@/i18n'
   import {getList} from '@/api/pay/consumeWithdraw'
   import Edit from './components/ConsumeWithdrawEdit'
+  import ApplyForm from './components/ConsumeWithdrawApply'
   import {Delete, Plus, Search} from '@element-plus/icons-vue'
   import {formatDateTime} from "@/utils/format";
   import {getList as getUserList} from "@/api/account/userInfo";
 
   export default defineComponent({
     name: 'ConsumeWithdraw',
-    components: {Edit},
+    components: {Edit, ApplyForm},
     emits: [],
     setup() {
       const $tableHeight = inject('$tableHeight')
 
       const state = reactive({
         editRef: null,
+        applyRef: null,
         height: $tableHeight(),
         items: [],
         listLoading: true,
@@ -314,6 +317,9 @@
         } else {
           state.editRef.showEdit()
         }
+      }
+      const handleApply = () => {
+        state.applyRef.show()
       }
       const handleDelete = (row) => {
         console.info(row)
@@ -406,6 +412,7 @@
         ...toRefs(state),
         setSelectRows,
         handleEdit,
+        handleApply,
         handleDelete,
         handleState,
         handleSizeChange,

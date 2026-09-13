@@ -4,7 +4,7 @@
 //颜色配置
 $base-color-white: #ffffff;
 $base-color-black: #515a6e;
-$base-color-primary: #1890ff;
+$base-color-primary: #2f69ff;
 $base-color-success: #13ce66;
 $base-color-warning: #ffba00;
 $base-color-danger: #ff6700;
@@ -25,7 +25,7 @@ $base-background-color-base: #f5f7fa;
 //默认层级
 $base-z-index: 1999;
 //分栏最左侧菜单背景色
-$base-column-first-menu-background: #282c34;
+$base-column-first-menu-background: #1b1f2a;
 //分栏菜单背景色
 $base-column-second-menu-background: #fff;
 //分栏菜单选中背景色
@@ -35,12 +35,12 @@ $base-column-second-menu-active: mix(
     10%
 );
 //横向、纵向菜单背景色
-$base-menu-background: #282c34;
+$base-menu-background: #1b1f2a;
 //菜单文字颜色
 //$base-menu-color: hsla(0, 0%, 100%, 0.95);
-$base-menu-color: hsl(0, 2%, 82%);
+$base-menu-color: rgba(255, 255, 255, 0.72);
 //菜单选中文字颜色
-$base-menu-color-active: hsla(0, 0%, 100%, 0.95);
+$base-menu-color-active: #ffffff;
 //菜单选中背景色
 $base-menu-active: $base-color-primary;
 $base-menu-background-active: $base-color-primary;
@@ -55,7 +55,7 @@ $base-font-size-max: 22px;
 //最大宽度
 $base-main-width: 1279px;
 //圆角
-$base-border-radius: 2.5px;
+$base-border-radius: 8px;
 //边框颜色
 $base-border-color: #dcdfe6;
 //输入框高度
@@ -77,7 +77,7 @@ $base-tabs-height: 50px;
 //顶部标签页tabs-bar中每一个item的高度
 $base-tag-item-height: 34px;
 //菜单li标签的高度
-$base-menu-item-height: 50px;
+$base-menu-item-height: 48px;
 //app-main的高度
 // + 55px, 底部footer高度
 $base-keep-alive-height: calc(

@@ -51,12 +51,9 @@
               </template>
             </el-menu>
             <ms-error-log />
-            <ms-lock />
-            <ms-search />
             <ms-notice />
             <ms-full-screen />
             <ms-language />
-            <ms-theme />
             <ms-refresh />
             <ms-avatar />
           </div>

@@ -181,7 +181,7 @@
                 class="button-new-tag"
                 @click="showInput(subItem, index)"
               >
-                + {{$t("添加")}}
+                + {{t("添加")}}
               </el-button>
             </el-form-item>
             <el-form-item v-if="subItem.config_key == 'sms_type' && form[subItem.config_key] == 0">

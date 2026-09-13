@@ -3,14 +3,14 @@
  */
 module.exports = {
   // 标题
-  title: 'ShopSuite',
+  title: 'Admin',
   //开源版不允许更改 标准版及企业版可以修改
-  copyright: 'Copyright 2018 随商信息技术（上海）有限公司 版权所有',
+  copyright: '',
   // 路由模式，是否为hash模式
   isHashRouterMode: true,
   routesWhiteList: ['/login', '/register', '/callback', '/404', '/403'],
   // 加载时显示文字
-  loadingText: '正在加载中...',
+  loadingText: 'Loading...',
   // token名称
   tokenName: 'token',
   // token在localStorage、sessionStorage、cookie存储的key的名称
@@ -21,7 +21,7 @@ module.exports = {
   // 是否开启logo，不显示时设置false，请填写src/icon路径下的图标名称
   logo: 'vuejs-fill',
   // 语言类型zh、en
-  i18n: 'zh',
+  i18n: 'en',
   // 消息框消失时间
   messageDuration: 3000,
   // 在哪些环境下显示高亮错误 ['development', 'production']

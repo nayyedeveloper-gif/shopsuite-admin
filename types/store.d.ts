@@ -23,7 +23,7 @@ declare interface RoutesModuleType {
 
 declare type DeviceType = 'mobile' | 'desktop'
 //declare type LanguageType = "ar" | "az" | "da" | "de" | "el" | "es" | "en" | "fi" | "fr" | "id" | "it" | "ja" | "kk" | "ko" | "lv" | "ms" | "my" | "nl" | "pl" | "pt" | "ro" | "ru" | "sr" | "th" | "tr" | "uk" | "vi" | "zh"
-declare type LanguageType = "en" | "ja" | "ru" | "es" | "th" | "zh"
+declare type LanguageType = "en" | "ja" | "ru" | "es" | "th" | "zh" | "my"
 
 declare interface SettingsModuleType {
   configs: any

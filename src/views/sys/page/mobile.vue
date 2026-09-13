@@ -6,7 +6,7 @@
       frameborder="0"
       scrolling="auto"
       :src="
-        'diy-mobile/index.html?page_id=' + page_id +
+        '/diy-mobile/index.html?page_id=' + page_id +
         '&api_url=' + encodeURIComponent(apiUrl) +
         '&authorization=' + encodeURIComponent(authorization) +
         '&uploadUrl=' + encodeURIComponent(uploadUrl)

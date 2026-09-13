@@ -49,12 +49,23 @@ const getLocalStorage = (key: string) => {
   return value && isJson(value) ? JSON.parse(value) : false
 }
 
-const theme = getLocalStorage('theme') || { ...defaultTheme }
+const theme = { ...defaultTheme, ...(getLocalStorage('theme') || {}) }
 const { collapse = foldSidebar } = getLocalStorage('collapse')
-const { language = i18n } = getLocalStorage('language')
+// Prefer configured default language; ignore stale zh preference from older builds
+const storedLanguage = getLocalStorage('language')
+const language =
+  storedLanguage && storedLanguage.language === 'en'
+    ? 'en'
+    : storedLanguage && storedLanguage.language && storedLanguage.language !== 'zh'
+      ? storedLanguage.language
+      : i18n
 const { lock = false } = getLocalStorage('lock')
 const { logo = _logo } = getLocalStorage('logo')
-const { title = _title } = getLocalStorage('title')
+const storedTitle = getLocalStorage('title')
+const title =
+  storedTitle && storedTitle.title && storedTitle.title !== 'ShopSuite'
+    ? storedTitle.title
+    : _title
 
 export const useSettingsStore = defineStore('settings', {
   state: (): SettingsModuleType => <SettingsModuleType>({
@@ -66,8 +77,8 @@ export const useSettingsStore = defineStore('settings', {
     lock,
     logo,
     title,
-    cmp:'随商信息技术（上海）有限公司',
-    url:'https://www.shopsuite.cn',
+    cmp: '',
+    url: '',
     echartsGraphic1: ['#3ED572', '#399efd'],
     echartsGraphic2: ['#399efd', '#8cc8ff'],
   }),

@@ -8,8 +8,8 @@ module.exports = {
   themeName: 'blue-black',
   // 菜单背景 none
   background: 'none',
-  // 菜单宽度，建议大小：190px，其余尺寸会影响美观
-  menuWidth: '190px',
+  // 菜单宽度（English labels need a bit more room than Chinese）
+  menuWidth: '248px',
   // 分栏风格(仅针对分栏布局column时生效)
   columnStyle: 'vertical',
   // 是否固定头部固定

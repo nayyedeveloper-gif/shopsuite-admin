@@ -29,8 +29,12 @@
       <el-form-item  :label="t('角色选择')" prop="role_id">
         <el-radio-group v-model="form.role_id" @change="handleRoleChange">
           <el-radio :label="9">{{ t('管理员') }}</el-radio>
+          <el-radio :label="2">{{ t('商家') }}</el-radio>
           <el-radio v-if="configs.chain_enable" :label="3">{{ t('门店') }}</el-radio>
         </el-radio-group>
+      </el-form-item>
+      <el-form-item v-if="form.role_id==2" :label="t('店铺编号')" prop="store_id">
+        <el-input v-model.number="form.store_id" clearable :placeholder="t('店铺编号 store_id')"/>
       </el-form-item>
       <el-form-item  v-if="form.role_id==3"  prop="chain_id" >
         <el-select
@@ -116,8 +120,26 @@ export default defineComponent({
               return false;
             }
           }
+          if(state.form.role_id == 2) {
+            if(!state.form.store_id) {
+              $message(t('请输入店铺编号'),'error')
+              return false;
+            }
+            // Resolve seller role from role list (user_role_code=seller), never hardcode 1005
+            const sellerRole = (state.roleOptions || []).find(
+              (r) => r.user_role_code === 'seller' || r.user_role_name === '商家' || r.user_role_name === 'Seller'
+            )
+            if (sellerRole && sellerRole.user_role_id) {
+              state.form.user_role_id = sellerRole.user_role_id
+            } else if (!state.form.user_role_id) {
+              $message(t('Seller role not found'), 'error')
+              return false
+            }
+            state.form.chain_id = 0
+          }
           if(state.form.role_id == 9) {
             state.form.chain_id=0
+            state.form.store_id=0
           }
           if (state.isUpdate) {
             const {msg, status} = await doEdit(state.form)

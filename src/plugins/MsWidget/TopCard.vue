@@ -18,11 +18,22 @@
     </div>
 
     <div class="bottom">
-      {{ t("昨日")}}{{countConfig.prefix}}{{ countConfig.yestoday ? countConfig.yestoday : "—" }}
-      <block style="margin-left: 5px;"><!--{{ t("环比")}}--> {{ countConfig.daym2m==null ? "—" : Number(countConfig.daym2m * 100).toFixed(0) + "%" }} </block>
-      <block v-if="countConfig.daym2m!=null"><ms-icon v-if="countConfig.daym2m && countConfig.daym2m>0" icon="arrow-up-line" /><ms-icon v-else icon="arrow-down-line" /></block>
-      <block v-if="countConfig.month" style="float: right;line-height:18px;">
-        {{ t("本月")}} {{countConfig.prefix}}{{countConfig.month}}</block>
+      <span class="bottom-left">
+        {{ t("昨日") }}
+        {{ countConfig.prefix }}{{ countConfig.yestoday != null && countConfig.yestoday !== '' ? countConfig.yestoday : "—" }}
+        <template v-if="countConfig.daym2m != null && countConfig.daym2m !== ''">
+          <span class="m2m">{{ formatDaym2m(countConfig.daym2m) }}</span>
+          <ms-icon v-if="Number(countConfig.daym2m) > 0" icon="arrow-up-line" />
+          <ms-icon v-else icon="arrow-down-line" />
+        </template>
+        <template v-else>
+          <span class="m2m">—</span>
+        </template>
+      </span>
+      <span class="bottom-right">
+        {{ t("本月") }}
+        {{ countConfig.prefix }}{{ countConfig.month != null && countConfig.month !== '' ? countConfig.month : "—" }}
+      </span>
     </div>
 
     <div v-if="false" class="bottom">
@@ -34,7 +45,6 @@
 
 <script>
 import {translate as t} from '@/i18n'
-  import _ from 'lodash'
   import MsCount from '@/plugins/MsCount'
 
   export default defineComponent({
@@ -68,12 +78,16 @@ import {translate as t} from '@/i18n'
         default: () => {
           return {
             startVal: 0,
-            endVal: _.random(1000, 20000),
+            endVal: 0,
+            today: 0,
+            yestoday: null,
+            month: null,
+            daym2m: null,
             decimals: 0,
             prefix: '',
             suffix: '',
             separator: ',',
-            duration: 8000,
+            duration: 800,
           }
         },
       },
@@ -81,8 +95,15 @@ import {translate as t} from '@/i18n'
     setup() {
       const state = reactive({})
 
+      const formatDaym2m = (val) => {
+        const n = Number(val)
+        if (Number.isNaN(n)) return '—'
+        return `${n.toFixed(0)}%`
+      }
+
       return {
         t,
+        formatDaym2m,
         ...toRefs(state),
       }
     },
@@ -92,10 +113,13 @@ import {translate as t} from '@/i18n'
 <style lang="scss" scoped>
   .top-card {
     position: relative;
-    height: 158px !important;
+    height: 148px !important;
+    margin-bottom: 16px;
 
     p {
+      margin: 8px 0 0;
       font-size: 28px;
+      line-height: 1.2;
     }
 
     .right-icon {
@@ -117,8 +141,25 @@ import {translate as t} from '@/i18n'
     }
 
     .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 18px;
       font-size: 12px;
-      margin-top: 10px;
+      line-height: 18px;
+      color: var(--el-text-color-secondary);
+
+      .bottom-left,
+      .bottom-right {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .m2m {
+        margin-left: 6px;
+      }
 
       .ri-arrow-up-line {
         width: 18px;
@@ -140,10 +181,6 @@ import {translate as t} from '@/i18n'
         background: var(--el-color-success-light);
         border-radius: 50%;
         transform: scale(0.8);
-      }
-
-      span {
-        color: var(--el-color-success);
       }
     }
 

@@ -65,14 +65,14 @@ export function formatTime(time: any | number | Date, option: any) {
   const diff = (now - d) / 1000
 
   if (diff < 30) {
-    return '刚刚'
+    return 'just now'
   } else if (diff < 3600) {
     // less 1 hour
-    return Math.ceil(diff / 60) + '分钟前'
+    return Math.ceil(diff / 60) + ' min ago'
   } else if (diff < 3600 * 24) {
-    return Math.ceil(diff / 3600) + '小时前'
+    return Math.ceil(diff / 3600) + ' hr ago'
   } else if (diff < 3600 * 24 * 2) {
-    return '1天前'
+    return '1 day ago'
   }
   if (option) {
     return parseTime(time, option)
@@ -80,13 +80,12 @@ export function formatTime(time: any | number | Date, option: any) {
     return (
       d.getMonth() +
       1 +
-      '月' +
+      '/' +
       d.getDate() +
-      '日' +
+      ' ' +
       d.getHours() +
-      '时' +
-      d.getMinutes() +
-      '分'
+      ':' +
+      String(d.getMinutes()).padStart(2, '0')
     )
   }
 }

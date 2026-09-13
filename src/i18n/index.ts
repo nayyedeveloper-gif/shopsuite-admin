@@ -30,6 +30,7 @@ import th from './locales/th.json'
 // import uk from './locales/uk.json'
 // import vi from './locales/vi.json'
 import zh from './locales/zh.json'
+import my from './locales/my.json'
 
 import enLocale from 'element-plus/dist/locale/en'
 import zhLocale from 'element-plus/dist/locale/zh-cn'
@@ -73,6 +74,7 @@ const messages: Record<LanguageType, any> = {
   th: {...th},
   ja: {...ja},
   zh: {...zh},
+  my: {...my},
 }
 
 function getLanguage() {
@@ -83,7 +85,7 @@ function getLanguage() {
 export const i18n = createI18n({
   legacy: false,
   locale: getLanguage(),
-  fallbackLocale: 'zh',
+  fallbackLocale: 'en',
   messages,
 })
 
@@ -96,10 +98,12 @@ export function translate(message: string | undefined) {
   if (!message) {
     return ''
   }
-  return (
-    [getLanguage(), 'msI18n', message].reduce(
-      (o, k) => (o || {})[k],
-      messages as any
-    ) || message
+  const fromLocale = [getLanguage(), 'msI18n', message].reduce(
+    (o, k) => (o || {})[k],
+    messages as any
   )
+  if (fromLocale) return fromLocale
+  // Always prefer English over showing raw Chinese keys
+  const fromEn = (messages as any)?.en?.msI18n?.[message]
+  return fromEn || message
 }

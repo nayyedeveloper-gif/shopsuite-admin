@@ -7,20 +7,20 @@
       @selection-change="setSelectRows"
     >
       <el-table-column align="center" type="index" width="30"/>
-      <el-table-column align="center" :label="$t('用户编号')" prop="user_id" width="100"/>
-      <el-table-column align="center" :label="$t('操作人')" prop="user_nickname" width="100"/>
-      <el-table-column align="center" :formatter="formatDateTime" :label="$t('时间')" prop="order_state_time" width="160"/>
-      <el-table-column align="center" :label="$t('操作前')" prop="order_state_type" width="160">
+      <el-table-column align="center" :label="t('用户编号')" prop="user_id" width="100"/>
+      <el-table-column align="center" :label="t('操作人')" prop="user_nickname" width="100"/>
+      <el-table-column align="center" :formatter="formatDateTime" :label="t('时间')" prop="order_state_time" width="160"/>
+      <el-table-column align="center" :label="t('操作前')" prop="order_state_type" width="160">
         <template #default="{ row }">
           <order-state :id="row.order_state_pre_id"/>
         </template>
       </el-table-column>
-      <el-table-column align="center" :label="$t('操作后')" prop="order_state_type" width="160">
+      <el-table-column align="center" :label="t('操作后')" prop="order_state_type" width="160">
         <template #default="{ row }">
           <order-state :id="row.order_state_id"/>
         </template>
       </el-table-column>
-      <el-table-column align="center" :label="$t('操作日志')" prop="order_state_note"/>
+      <el-table-column align="center" :label="t('操作日志')" prop="order_state_note"/>
       <template #empty>
         <el-empty class="ms-data-empty" :description="t('暂无数据')"/>
       </template>

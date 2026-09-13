@@ -374,11 +374,13 @@
           <span v-else>{{ scope.row.product_order }}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" fixed="right" :label="t('操作')" width="180">
+      <el-table-column align="center" fixed="right" :label="t('操作')" min-width="200" width="220">
         <template #default="{ row }">
-          <el-button v-permissions="{ permission: ['/manage/pt/productBase/edit'] }" text @click="handleEdit(row)">{{ t('编辑') }}</el-button>
-          <el-button v-permissions="{ permission: ['/manage/pt/productBase/edit'] }" text @click="handleStock(row)">{{ t('库存') }}</el-button>
-          <el-button v-permissions="{ permission: ['/manage/pt/productBase/remove'] }" text @click="handleDelete(row)">{{ t('删除') }}</el-button>
+          <div class="product-ops">
+            <el-button v-permissions="{ permission: ['/manage/pt/productBase/edit'] }" link type="primary" @click="handleEdit(row)">{{ t('编辑') }}</el-button>
+            <el-button v-permissions="{ permission: ['/manage/pt/productBase/edit'] }" link type="primary" @click="handleStock(row)">{{ t('库存') }}</el-button>
+            <el-button v-permissions="{ permission: ['/manage/pt/productBase/remove'] }" link type="danger" @click="handleDelete(row)">{{ t('删除') }}</el-button>
+          </div>
         </template>
       </el-table-column>
       <template #empty>
@@ -796,8 +798,18 @@ export default defineComponent({
 $base: '.product-base';
 #{$base}-container {
   :deep(.el-table) {
-    .el-button.is-text{
-      width: 40px;
+    .product-ops {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 4px 8px;
+
+      .el-button {
+        width: auto;
+        margin: 0;
+        padding: 0 4px;
+      }
     }
   }
 }

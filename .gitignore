@@ -44,3 +44,4 @@ public/video
 *.7z
 *.rar
 /.history
+tsconfig.tsbuildinfo

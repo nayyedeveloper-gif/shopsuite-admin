@@ -11,10 +11,10 @@
   let timer
   const state = reactive({
     jumpTime: 5,
-    oops: '抱歉!',
-    headline: '您没有操作角色...',
-    info: '当前帐号没有操作角色,请联系管理员。',
-    btn: '返回首页',
+    oops: 'Sorry!',
+    headline: 'Access denied...',
+    info: 'Your account has no assigned role. Please contact the administrator.',
+    btn: 'Back to Home',
   })
 
   const timeChange = () => {

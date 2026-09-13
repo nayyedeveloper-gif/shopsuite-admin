@@ -83,7 +83,8 @@
     height: 100vh;
     overflow: hidden;
     background: $base-menu-background;
-    box-shadow: $base-box-shadow;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: none;
     transition: $base-transition;
 
     &.side-bar-common {
@@ -128,22 +129,58 @@
         overflow-x: hidden;
       }
 
+      .el-menu {
+        padding: 8px 10px 16px;
+        background: transparent !important;
+      }
+
       .el-menu-item,
       .el-sub-menu__title {
         height: $base-menu-item-height;
+        margin: 2px 0;
         overflow: hidden;
         line-height: $base-menu-item-height;
         text-overflow: ellipsis;
         white-space: nowrap;
         vertical-align: middle;
+        border-radius: 8px;
 
         i {
           color: inherit;
         }
       }
 
+      // Keep chevron clear of label; ellipsis long titles
+      .el-sub-menu__title {
+        padding-right: 36px !important;
+
+        .el-sub-menu__icon-arrow {
+          right: 12px;
+          margin-top: -6px;
+        }
+
+        > span {
+          display: inline-block;
+          max-width: calc(100% - 8px);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          vertical-align: bottom;
+        }
+      }
+
       .el-menu-item {
         @include active;
+      }
+
+      // Mild nest indent — keep hierarchy without eating English label space
+      .el-sub-menu .el-menu-item {
+        padding-left: 32px !important;
+        min-width: auto;
+      }
+
+      .el-sub-menu .el-sub-menu .el-menu-item,
+      .el-sub-menu .el-sub-menu > .el-sub-menu__title {
+        padding-left: 40px !important;
       }
     }
   }

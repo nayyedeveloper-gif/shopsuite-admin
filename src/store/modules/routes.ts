@@ -68,7 +68,7 @@ export const useRoutesStore = defineStore('routes', {
       } = await getList()
       if (!isArray(list))
         gp.$message(
-          '路由格式返回有误！',
+          'Invalid route format returned from the server!',
           'error',
           'ms-hey-message-error'
         )

@@ -24,6 +24,7 @@
       <el-dropdown-menu>
         <el-dropdown-item command="zh">中文简体</el-dropdown-item>
         <el-dropdown-item command="en">English</el-dropdown-item>
+        <el-dropdown-item command="my">မြန်မာ</el-dropdown-item>
         <el-dropdown-item command="ru">Русский язык</el-dropdown-item>
         <el-dropdown-item command="es">España</el-dropdown-item>
         <el-dropdown-item command="th">ภาษาไทย</el-dropdown-item>

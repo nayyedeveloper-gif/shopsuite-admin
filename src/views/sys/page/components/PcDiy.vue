@@ -12,14 +12,7 @@
       class="placeholder"
       frameborder="0"
       scrolling="auto"
-      :src="
-        'diy-pc/index.html?page_id=' +
-        page_id +
-        '&api_url=' +
-        encodeURIComponent(URL.apiUrl) +
-        '&admin_url=' +
-        encodeURIComponent(URL.adminUrl)
-      "
+      :src="iframeSrc"
       style="width: 100%; height: 770px"
     ></iframe>
     <template #footer>
@@ -29,6 +22,7 @@
 </template>
 
 <script>
+  import { computed, defineComponent, reactive, toRefs } from 'vue'
   import { translate as t } from '@/i18n'
   import { URL } from '@/config'
 
@@ -37,23 +31,37 @@
     setup() {
       const state = reactive({
         dialogFormVisible: false,
-        page_id : '',
-        URL : URL,
+        page_id: '',
+        title: t('装修'),
+        URL,
+      })
 
-
+      // Absolute path required: page route is also /diy-pc, so relative
+      // "diy-pc/index.html" would resolve to /diy-pc/diy-pc/index.html
+      const iframeSrc = computed(() => {
+        if (!state.dialogFormVisible || !state.page_id) return 'about:blank'
+        const q = new URLSearchParams({
+          page_id: String(state.page_id),
+          api_url: URL.apiUrl || '',
+          admin_url: URL.adminUrl || '',
+        })
+        return `/diy-pc/index.html?${q.toString()}`
       })
 
       const showDiy = (row) => {
+        state.title = (row && row.page_name) ? `${t('装修')} - ${row.page_name}` : t('装修')
+        state.page_id = row && row.page_id != null ? row.page_id : ''
         state.dialogFormVisible = true
-        state.page_id = row.page_id
       }
       const close = () => {
         state.dialogFormVisible = false
+        state.page_id = ''
       }
 
       return {
-        t: t,
+        t,
         ...toRefs(state),
+        iframeSrc,
         showDiy,
         close,
       }

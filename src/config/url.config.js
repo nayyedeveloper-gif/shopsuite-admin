@@ -471,7 +471,10 @@ const url = {
     },
     consumeWithdraw: {
       list: api + '/manage/pay/consumeWithdraw/list',
-      edit: api + '/manage/pay/consumeWithdraw/edit',
+      edit: api + '/manage/pay/consumeWithdraw/review',
+      review: api + '/manage/pay/consumeWithdraw/review',
+      apply: api + '/manage/pay/consumeWithdraw/apply',
+      prepare: api + '/manage/pay/consumeWithdraw/prepare',
       wechatTransfer: api + '/manage/pay/consumeWithdraw/wechatTransfer',
     },
     distributionWithdraw: {
@@ -778,6 +781,13 @@ const url = {
       edit: api + '/manage/shop/storeShippingAddress/edit',
       remove: api + '/manage/shop/storeShippingAddress/remove',
       doRemoveBatch: api + '/manage/shop/storeShippingAddress/removeBatch',
+    },
+    storeBase: {
+      list: api + '/manage/shop/storeBase/list',
+      get: api + '/manage/shop/storeBase/get',
+      approve: api + '/manage/shop/storeBase/approve',
+      editState: api + '/manage/shop/storeBase/editState',
+      commissionReport: api + '/manage/shop/storeBase/commissionReport',
     },
     storeTransportType: {
       list: api + '/manage/shop/storeTransportType/list',

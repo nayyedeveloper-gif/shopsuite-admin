@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="dashboard-container">
-      <el-row :gutter="20">
+      <el-row :gutter="16">
         <el-col :lg="6" :md="12" :sm="24" :xl="6" :xs="24">
           <top-card
             background="white"
@@ -48,10 +48,10 @@
         </el-col>
       </el-row>
     </div>
-    <el-row :gutter="20">
+    <el-row class="dashboard-section" :gutter="16">
       <nav-list />
     </el-row>
-    <el-row :gutter="20">
+    <el-row class="dashboard-section" :gutter="16">
       <el-col :span="site_id ? 24 : 12">
         <div class="grid-content bg-purple">
           <el-card v-loading="columnLoading" class="box-card">
@@ -91,7 +91,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-row :gutter="20">
+    <el-row class="dashboard-section" :gutter="16">
       <el-col :span="12">
         <div class="grid-content bg-purple">
           <el-card v-loading="columnLoading" class="box-card">
@@ -203,7 +203,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row :gutter="24">
+    <el-row class="dashboard-section" :gutter="16">
       <el-col :span="24">
         <el-card class="box-card">
           <template #header>
@@ -224,7 +224,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row :gutter="24">
+    <el-row class="dashboard-section" :gutter="16">
       <el-col :span="24">
         <div class="grid-content bg-purple">
           <el-card v-loading="loading" class="box-card">
@@ -275,6 +275,7 @@ import {
   getAccessOs as getAO,
   getAccessProvince as getAP,
 } from '@/api/analytics/access/history'
+import { getSysInfo } from '@/api/router'
 import { useSettingsStore } from '@/store/modules/settings'
 import moment from "dayjs";
 import {formatTimeLine} from "@/utils";
@@ -294,7 +295,7 @@ export default defineComponent({
         startVal: 0,
         endVal: 0,
         /*decimals: 2,*/
-        prefix: '￥',
+        prefix: '',
         suffix: '',
         separator: ',',
         duration: 8000,
@@ -1117,7 +1118,15 @@ export default defineComponent({
       state.loading = false
     }
 
-    onMounted(() => {
+    onMounted(async () => {
+      try {
+        const { data } = await getSysInfo({})
+        if (data && data.currency_symbol_left) {
+          state.saleConfig.prefix = `${data.currency_symbol_left} `
+        }
+      } catch (e) {
+        // currency info not yet configured — ignore
+      }
       fetchData()
     })
 
@@ -1154,18 +1163,25 @@ export default defineComponent({
   .dashboard-container {
     padding: 0 !important;
     background: $base-color-background !important;
+  }
 
-    :deep() {
-      .el-card {
-        height: 300px;
+  .dashboard-section {
+    margin-bottom: 16px;
 
-        [class*='-echart'] {
-          width: 100%;
-          height: 200px;
-        }
+    :deep(.el-card) {
+      margin-bottom: 0;
+    }
+
+    :deep(.box-card) {
+      min-height: 300px;
+
+      [class*='-echart'] {
+        width: 100%;
+        height: 220px;
       }
     }
   }
+
 .xe-icon {
   width: 80px;
   padding: 10px;

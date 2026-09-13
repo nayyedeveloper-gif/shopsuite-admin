@@ -110,11 +110,11 @@
                 {{ t('￥') }}{{ detail.order_discount_amount }}
               </el-col>
               <el-col class="price-info" :span="3" style="text-align: right">
-                <span>{{ $t('优惠券抵扣') }}：</span>
+                <span>{{ t('优惠券抵扣') }}：</span>
               </el-col>
               <el-col :span="1">{{ t('￥') }}{{ detail.voucher_price }}</el-col>
               <el-col class="price-info" :span="3" style="text-align: right">
-                <span>{{ $t('积分抵扣') }} ：</span>
+                <span>{{ t('积分抵扣') }} ：</span>
               </el-col>
               <el-col :span="1">{{ t('￥') }}{{ detail.order_points_fee }}</el-col>
               <el-col class="price-info" :span="3">
@@ -127,13 +127,13 @@
                   type="text"
                   @click="showShippingFeeEdit()"
                 />
-                <span>{{ $t('运费') }} ：</span>
+                <span>{{ t('运费') }} ：</span>
               </span>
               </el-col>
               <el-col :span="1">{{ t('￥') }}{{ detail.order_shipping_fee }}</el-col>
 
               <el-col class="price-info" :offset="3" :span="3" style="">
-                <span>{{ $t('应付金额') }} ：</span>
+                <span>{{ t('应付金额') }} ：</span>
               </el-col>
               <el-col :span="2" style="color: red;">{{ t('￥') }}{{
                   mf(detail.order_payment_amount)
@@ -142,15 +142,15 @@
             </el-row>
           </div>
           <div>
-            <div style="font-weight: 400; font-size: 18px; padding-top: 30px">{{ $t('收货信息') }}</div>
+            <div style="font-weight: 400; font-size: 18px; padding-top: 30px">{{ t('收货信息') }}</div>
             <el-divider/>
             <div v-if="detail.delivery">
-              <span style="margin-right: 20px;"><span>{{ $t('收货人') }} ：</span>{{ detail.delivery.da_name }}</span>
+              <span style="margin-right: 20px;"><span>{{ t('收货人') }} ：</span>{{ detail.delivery.da_name }}</span>
               &nbsp;&nbsp;
-              <span style="margin-right: 20px;">{{ $t('联系方式') }} ：
+              <span style="margin-right: 20px;">{{ t('联系方式') }} ：
               <span>+{{ detail.currency_id }}{{ detail.delivery.da_mobile }}</span></span>
               &nbsp;&nbsp;
-              <span style="margin-right: 20px;">{{ $t('收货地址') }} ：
+              <span style="margin-right: 20px;">{{ t('收货地址') }} ：
               <span>{{ deliveryInfo() }}</span></span>
             </div>
             <div v-if="viewLogisticsFlag">
@@ -158,22 +158,22 @@
                 <el-button
 size="small" type="danger"
                             @click="viewLogistics(item.order_tracking_number, item.express_name)">
-                  {{ $t('查看物流') }}
+                  {{ t('查看物流') }}
                 </el-button>
               </div>
             </div>
           </div>
           <div v-if="detail.chain_id">
-            <div style="font-weight: 400; font-size: 18px; padding-top: 30px">{{ $t('自提信息') }}</div>
+            <div style="font-weight: 400; font-size: 18px; padding-top: 30px">{{ t('自提信息') }}</div>
             <el-divider/>
             <div>
-              <span style="margin-right: 20px;"><span>{{ $t('自提门店') }} ：</span>{{ detail.chain_name }}</span>
+              <span style="margin-right: 20px;"><span>{{ t('自提门店') }} ：</span>{{ detail.chain_name }}</span>
               &nbsp;&nbsp;
-              <span style="margin-right: 20px;">{{ $t('自提日期') }} ：<span>{{ renderDate(detail.virtual_service_date) }}</span></span>
+              <span style="margin-right: 20px;">{{ t('自提日期') }} ：<span>{{ renderDate(detail.virtual_service_date) }}</span></span>
             </div>
           </div>
           <div>
-            <div style="font-weight: 400; font-size: 18px; padding-top: 30px">{{ $t('操作日志') }}</div>
+            <div style="font-weight: 400; font-size: 18px; padding-top: 30px">{{ t('操作日志') }}</div>
             <el-divider/>
             <order-state-log ref="orderStateLogRef" v-model="detail.order_id" @fetch-data="fetchData"/>
           </div>
@@ -309,7 +309,7 @@ size="small" type="danger"
                     <el-button
 v-if="stock.order_logistics_id && stock.logistics_enable" size="small"
                                type="info" @click="viewLogistics(stock.order_tracking_number, stock.express_name)">
-                      {{ $t('物流追踪') }}
+                      {{ t('物流追踪') }}
                     </el-button>
                     <el-button
                       :icon="Check"

@@ -126,8 +126,8 @@
 
       <el-table-column align="center" fixed="right" :label="t('操作')" width="250">
         <template #default="{ row }">
-          <el-button v-permissions="{ permission: ['/manage/cms/articleCategory/add'] }" text @click="handleAdd(row)">{{ $t('添加') }}</el-button>
-          <el-button v-permissions="{ permission: ['/manage/cms/articleCategory/edit'] }" text @click="handleEdit(row)">{{ $t('编辑') }}</el-button>
+          <el-button v-permissions="{ permission: ['/manage/cms/articleCategory/add'] }" text @click="handleAdd(row)">{{ t('添加') }}</el-button>
+          <el-button v-permissions="{ permission: ['/manage/cms/articleCategory/edit'] }" text @click="handleEdit(row)">{{ t('编辑') }}</el-button>
           <el-button v-permissions="{ permission: ['/manage/cms/articleCategory/remove'] }" text @click="handleDelete(row)">{{ t('删除') }}</el-button>
         </template>
       </el-table-column>

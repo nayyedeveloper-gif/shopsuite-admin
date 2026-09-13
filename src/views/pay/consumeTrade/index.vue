@@ -121,7 +121,7 @@
         width="100"
       >
         <template #default="{ row }">
-          <el-tag :type='({"1201":"","1202":"success","1203":"warning","1204":"info","1205":"danger","1206":null})[row.trade_type_id]'>
+          <el-tag :type='({"1201":"primary","1202":"success","1203":"warning","1204":"info","1205":"danger","1206":"info"})[row.trade_type_id] || "info"'>
             {{ ({"1201":t('购物'),"1202":t('转账'),"1203":t('充值'),"1204":t('提现'),"1205":t('销售'),"1206":t('佣金')})[row.trade_type_id] }}
           </el-tag>
         </template>
@@ -150,7 +150,7 @@
         width="100"
       >
         <template #default="{ row }">
-          <el-tag :type='({"1":"","2":"success"})[row.trade_mode_id]'>
+          <el-tag :type='({"1":"info","2":"success"})[row.trade_mode_id] || "info"'>
             {{ ({"1":t('担保交易'),"2":t('直接交易')})[row.trade_mode_id] }}
           </el-tag>
         </template>

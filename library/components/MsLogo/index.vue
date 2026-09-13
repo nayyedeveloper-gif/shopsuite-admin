@@ -134,7 +134,7 @@
   }
 
   .logo-container.logo-container-vertical {
-    border-bottom: 1px solid #323435;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
 </style>

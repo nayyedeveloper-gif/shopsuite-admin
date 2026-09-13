@@ -50,6 +50,12 @@ module.exports = defineConfig({
       overlay: {
         warnings: false,
         errors: true,
+        // Chrome ResizeObserver noise — not an app bug; overlay treats it as fatal
+        runtimeErrors: (error) => {
+          const msg = error?.message || String(error || '')
+          if (msg.includes('ResizeObserver loop')) return false
+          return true
+        },
       },
     },
     hot: true,

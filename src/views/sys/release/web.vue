@@ -134,7 +134,7 @@ export default defineComponent({
 
     const getAuthorize = async () => {
       state.listLoading = true
-      window.open(`https://www.shopsuite.cn`)
+      // License / authorize URL is configured by the operator; do not hardcode vendor site
       state.listLoading = false
     }
     const getWeb = async () => {

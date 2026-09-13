@@ -1,4 +1,4 @@
-$base-color-primary: #1890ff;
+$base-color-primary: #2f69ff;
 $base-color-success: #13ce66;
 $base-color-warning: #ffba00;
 $base-color-danger: #ff4d4f;
@@ -37,7 +37,7 @@ $base-color-transition: #77e19d;
       $base-color-text-secondary,
       90%
   );
-  ms-border-radius-base: 2.5px;
+  ms-border-radius-base: 8px;
   ms-color-transition: $base-color-transition;
   ms-left-menu-width: $base-left-menu-width;
 }
