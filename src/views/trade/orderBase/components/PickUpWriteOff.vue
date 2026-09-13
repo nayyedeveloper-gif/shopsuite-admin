@@ -272,7 +272,7 @@ export default defineComponent({
         const obj = state.activityTypes.find(
           (item) => item.value === activity_type_id
         )
-        return obj ? obj.label : '无'
+        return obj ? obj.label: t('无')
       }
       const formatPaymentMet = (row) => {
         const payment_met_id = row.payment_met_id
@@ -342,7 +342,7 @@ export default defineComponent({
         } else {
           state.detail = {}
           state.itemData = {}
-          $message('请输入自提码/服务码', 'error')
+          $message(t('请输入自提码/服务码'), 'error')
         }
         state.loading = false
       }

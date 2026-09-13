@@ -9,9 +9,7 @@
           :icon="Plus"
           type="primary"
           @click="handleEdit()"
-        >
-          添加配置
-        </el-button>
+        >{{ t('添加配置') }}</el-button>
       </ms-search-box-left-panel>
     </ms-search-box>
 

@@ -236,37 +236,37 @@
         deposit_payment_type_options : [
           {
             value: 1301,
-            label: '货到付款'
+            label: t('货到付款')
           },
           {
             value: 1302,
-            label: '在线支付'
+            label: t('在线支付')
           },
           {
             value: 1303,
-            label: '白条支付'
+            label: t('白条支付')
           },
           {
             value: 1304,
-            label: '现金支付'
+            label: t('现金支付')
           },
           {
             value: 1305,
-            label: '线下支付'
+            label: t('线下支付')
           },
         ],
         deposit_state_radio: [
           {
             value: 0,
-            label: '默认'
+            label: t('默认')
           },
           {
             value: 1,
-            label: '正常'
+            label: t('正常')
           },
           {
             value: 9,
-            label: '异常订单'
+            label: t('异常订单')
           },
         ],
       })

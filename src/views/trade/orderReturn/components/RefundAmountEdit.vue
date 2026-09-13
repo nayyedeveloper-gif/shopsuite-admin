@@ -92,7 +92,7 @@
           return_refund_amount: [
             {
               required: true,
-              message: '请输入退款金额',
+              message: t('请输入退款金额'),
               trigger: 'blur',
             },
           ]

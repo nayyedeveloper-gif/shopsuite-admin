@@ -3,7 +3,7 @@
     <template #header>
       <span>
         <ms-icon icon="line-chart-fill" />
-        趋势
+        {{ t('趋势') }}
       </span>
     </template>
     <ms-chart
@@ -17,6 +17,7 @@
 
 <script>
   import MsChart from '@/plugins/MsChart'
+  import { translate as t } from '@/i18n'
 
   export default defineComponent({
     components: {
@@ -43,18 +44,8 @@
             {
               type: 'category',
               data: [
-                '1月',
-                '2月',
-                '3月',
-                '4月',
-                '5月',
-                '6月',
-                '7月',
-                '8月',
-                '9月',
-                '10月',
-                '11月',
-                '12月',
+                t('1月'), t('2月'), t('3月'), t('4月'), t('5月'), t('6月'),
+                t('7月'), t('8月'), t('9月'), t('10月'), t('11月'), t('12月'),
               ],
               boundaryGap: false,
             },
@@ -66,7 +57,7 @@
           ],
           series: [
             {
-              name: '签单',
+              name: t('签单'),
               type: 'line',
               data: [
                 1295, 3020, 1330, 512, 4463, 2214, 3330, 2412, 1205, 820, 3330,
@@ -81,7 +72,7 @@
               },
             },
             {
-              name: '回款',
+              name: t('回款'),
               type: 'line',
               data: [
                 2905, 2020, 1730, 128, 963, 4614, 630, 1912, 1005, 1782, 1530,

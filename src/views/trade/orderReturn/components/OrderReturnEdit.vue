@@ -292,59 +292,59 @@ export default defineComponent({
       return_fee_options : [
         {
           value: 0,
-          label: '退款单'
+          label: t('退款单')
         },
         {
           value: 1,
-          label: '退运费单'
+          label: t('退运费单')
         },
       ],
       return_flag_options : [
         {
           value: 0,
-          label: '不用退货'
+          label: t('不用退货')
         },
         {
           value: 1,
-          label: '需要退货'
+          label: t('需要退货')
         },
       ],
       return_type_options: [
         {
           value: 1,
-          label: '退款申请'
+          label: t('退款申请')
         },
         {
           value: 2,
-          label: '退货申请'
+          label: t('退货申请')
         },
         {
           value: 3,
-          label: '虚拟退款'
+          label: t('虚拟退款')
         },
       ],
       order_lock_options : [
         {
           value: 1,
-          label: '不用锁定'
+          label: t('不用锁定')
         },
         {
           value: 2,
-          label: '需要锁定'
+          label: t('需要锁定')
         },
       ],
       channel_flag_options : [
         {
           value: 0,
-          label: '待退'
+          label: t('待退')
         },
         {
           value: 1,
-          label: '已退'
+          label: t('已退')
         },
         {
           value: 2,
-          label: '异常'
+          label: t('异常')
         },
       ],
     })

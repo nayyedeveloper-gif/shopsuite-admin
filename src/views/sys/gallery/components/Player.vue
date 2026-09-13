@@ -2,7 +2,7 @@
   <el-dialog
     v-model="dialogFormVisible"
     append-to-body
-    title="视频播放"
+    :title="t('视频播放')"
     width="50%"
     @close="close"
   >

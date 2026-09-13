@@ -62,7 +62,7 @@
           :style="{ width: '100%' }"
         />
       </el-form-item>
-      <el-form-item label="默认地址" prop="ss_is_default">
+      <el-form-item :label="t('默认地址')" prop="ss_is_default">
         <el-radio-group v-model="form.ss_is_default" size="medium">
           <el-radio
             v-for="(item, index) in ss_is_defaultOptions"

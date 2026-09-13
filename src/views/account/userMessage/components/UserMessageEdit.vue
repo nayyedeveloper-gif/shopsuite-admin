@@ -152,73 +152,73 @@ export default defineComponent({
       message_kind_options: [
         {
           value: 1,
-          label: '发送消息'
+          label: t('发送消息')
         },
         {
           value: 2,
-          label: '接收消息'
+          label: t('接收消息')
         },
       ],
       message_type_options: [
         {
           value: 1,
-          label: '系统消息'
+          label: t('系统消息')
         },
         {
           value: 1,
-          label: '用户消息'
+          label: t('用户消息')
         },
       ],
       message_cat_options: [
         {
           value: 'text',
-          label: '文本消息'
+          label: t('文本消息')
         },
         {
           value: 'img',
-          label: '图片消息'
+          label: t('图片消息')
         },
         {
           value: 'video',
-          label: '视频消息'
+          label: t('视频消息')
         },
         {
           value: 'file',
-          label: '文件'
+          label: t('文件')
         },
         {
           value: 'location',
-          label: '位置'
+          label: t('位置')
         },
         {
           value: 'redpack',
-          label: '红包'
+          label: t('红包')
         },
       ],
       message_data_type_options: [
         {
           value: 0,
-          label: '默认消息'
+          label: t('默认消息')
         },
         {
           value: 1,
-          label: '公告消息'
+          label: t('公告消息')
         },
         {
           value: 2,
-          label: '订单消息'
+          label: t('订单消息')
         },
         {
           value: 3,
-          label: '商品消息'
+          label: t('商品消息')
         },
         {
           value: 4,
-          label: '余额卡券'
+          label: t('余额卡券')
         },
         {
           value: 5,
-          label: '服务消息'
+          label: t('服务消息')
         },
       ],
 

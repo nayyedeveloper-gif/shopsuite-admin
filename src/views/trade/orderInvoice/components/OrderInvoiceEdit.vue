@@ -184,31 +184,31 @@ export default defineComponent({
       isUpdate: false,
       invoice_is_companys: [
         {
-          label: '个人',
+          label: t('个人'),
           value: false,
         },
         {
-          label: '公司',
+          label: t('公司'),
           value: true,
         },
       ],
       invoice_is_electronics: [
         {
-          label: '纸质发票',
+          label: t('纸质发票'),
           value: 0,
         },
         {
-          label: '电子发票',
+          label: t('电子发票'),
           value: 1,
         },
       ],
       invoice_types: [
         {
-          label: '普通发票',
+          label: t('普通发票'),
           value: 1,
         },
         {
-          label: '增值税专用发票',
+          label: t('增值税专用发票'),
           value: 2,
         },
       ],

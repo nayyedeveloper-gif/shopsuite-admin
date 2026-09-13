@@ -85,7 +85,7 @@
           emit('fetch-data')
           close()
         } else {
-          $message('请选择地区！', 'error')
+          $message(t('请选择地区！'), 'error')
         }
       }
 

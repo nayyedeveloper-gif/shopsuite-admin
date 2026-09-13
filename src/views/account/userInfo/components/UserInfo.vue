@@ -75,7 +75,7 @@ v-permissions="{ permission: ['/manage/account/userInfo/remove'] }" type="danger
       </div>
       <div style="margin-top: 20px">
         <el-tabs v-model="activeName" style="margin-right: 10px" @tab-click="handleClick">
-          <el-tab-pane label="用户信息" name="1">
+          <el-tab-pane :label="t('用户信息')" name="1">
             <div style="margin-top: 20px;margin-bottom: 30px">
               <div class="left-line"></div>
               <span style="font-size: 16px">{{ t('基本信息') }}</span>
@@ -218,7 +218,7 @@ size="small" type="danger"
             <el-divider/>
 
           </el-tab-pane>
-          <el-tab-pane v-if="getPermission.includes('/manage/pay/consumeTrade/list')" label="交易订单" name="2">
+          <el-tab-pane v-if="getPermission.includes('/manage/pay/consumeTrade/list')" :label="t('交易订单')" name="2">
             <el-table
               v-loading="consumeTradeLoading"
               border
@@ -524,7 +524,7 @@ size="small" type="danger"
             />
 
           </el-tab-pane>
-          <el-tab-pane v-if="getPermission.includes('/manage/pay/userPointsHistory/list')" label="积分明细" name="3">
+          <el-tab-pane v-if="getPermission.includes('/manage/pay/userPointsHistory/list')" :label="t('积分明细')" name="3">
             <el-table
               v-loading="pointLoading"
               border
@@ -668,7 +668,7 @@ size="small" type="danger"
             />
 
           </el-tab-pane>
-          <el-tab-pane v-if="getPermission.includes('/manage/pay/userPointsHistory/list')" label="签到记录" name="4">
+          <el-tab-pane v-if="getPermission.includes('/manage/pay/userPointsHistory/list')" :label="t('签到记录')" name="4">
             <el-table
               v-loading="signInfoLoading"
               border
@@ -759,7 +759,7 @@ size="small" type="danger"
               @size-change="signInfoSize"
             />
           </el-tab-pane>
-          <el-tab-pane v-if="getPermission.includes('/manage/shop/userVoucher/list')" label="持有优惠券" name="5">
+          <el-tab-pane v-if="getPermission.includes('/manage/shop/userVoucher/list')" :label="t('持有优惠券')" name="5">
             <el-table
               v-loading="voucherLoading"
               border
@@ -867,7 +867,7 @@ size="small" type="danger"
             />
 
           </el-tab-pane>
-          <el-tab-pane v-if="getPermission.includes('/manage/pay/consumeRecord/list')" label="余额变动" name="6">
+          <el-tab-pane v-if="getPermission.includes('/manage/pay/consumeRecord/list')" :label="t('余额变动')" name="6">
             <el-table
               v-loading="consumeRecordLoading"
               border
@@ -1113,7 +1113,7 @@ size="small" type="danger"
               @size-change="consumeRecordSize"
             />
           </el-tab-pane>
-          <el-tab-pane label="用户绑定" name="7">
+          <el-tab-pane :label="t('用户绑定')" name="7">
             <el-table
               v-loading="bindConnectLoading"
               border

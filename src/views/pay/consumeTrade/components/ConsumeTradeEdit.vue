@@ -184,37 +184,37 @@
         trade_type_id_options : [
           {
             value: 1201,
-            label: '购物'
+            label: t('购物')
           },
           {
             value: 1202,
-            label: '转账'
+            label: t('转账')
           },
           {
             value: 1203,
-            label: '充值'
+            label: t('充值')
           },
           {
             value: 1204,
-            label: '提现'
+            label: t('提现')
           },
           {
             value: 1205,
-            label: '销售'
+            label: t('销售')
           },
           {
             value: 1206,
-            label: '佣金'
+            label: t('佣金')
           },
         ],
         trade_mode_id_options : [
           {
             value: 1,
-            label: '担保交易'
+            label: t('担保交易')
           },
           {
             value: 2,
-            label: '直接交易'
+            label: t('直接交易')
           },
         ],
       })

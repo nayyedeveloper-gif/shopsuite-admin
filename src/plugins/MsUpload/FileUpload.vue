@@ -166,7 +166,7 @@ export default {
         const size = file.size;
         if (size > MAXSIZE) {
           event.target.value = "";
-          $message("上传文件不能超过50M", "error")
+          $message(t('上传文件不能超过50M'), "error")
           return;
         }
         state.loading = true;
@@ -223,7 +223,7 @@ export default {
         };
       } else {
         event.target.value = "";
-        $message("请上传" + props.fileExt + "格式图片", "error")
+        $message(t('请上传') + props.fileExt + "格式图片", "error")
       }
     }
 

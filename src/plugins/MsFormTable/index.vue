@@ -2,15 +2,13 @@
   <div class="ms-form-table">
     <ms-search-box>
       <ms-search-box-top-panel :span="12">
-        <el-button :icon="Plus" type="primary" @click="handleAdd($event)">
-          添加
-        </el-button>
+        <el-button :icon="Plus" type="primary" @click="handleAdd($event)">{{ t('添加') }}</el-button>
       </ms-search-box-top-panel>
     </ms-search-box>
     <el-table
 :key="toggleIndex" ref="tableRef" border
               :data="data"  :height="height" :row-class-name="tableRowClassName" @row-click="rowClick">
-      <el-table-column v-if="drag" align="center" label="操作" width="60">
+      <el-table-column v-if="drag" align="center" :label="t('操作')" width="60">
         <template #default>
           <ms-icon
             class="ms-rank"
@@ -21,20 +19,18 @@
       </el-table-column>
 
       <slot></slot>
-      <el-table-column align="center" label="操作" width="120">
+      <el-table-column align="center" :label="t('操作')" width="120">
         <template #default="{ $index, row }">
           <el-button
             :icon="Delete"
             plain
             type="danger"
             @click="handleDelete(row, $index)"
-          >
-            删除
-          </el-button>
+          >{{ t('删除') }}</el-button>
         </template>
       </el-table-column>
       <template #empty>
-        <el-empty class="ms-data-empty" description="暂无数据" />
+        <el-empty class="ms-data-empty" :description="t('暂无数据')" />
       </template>
     </el-table>
   </div>
@@ -42,6 +38,7 @@
 
 <script>
   import { Delete, Plus } from '@element-plus/icons-vue'
+import { translate as t } from '@/i18n'
   import Sortable from 'sortablejs'
 
   export default defineComponent({
@@ -128,6 +125,7 @@
         tableRowClassName,
         Delete,
         Plus,
+        t,
       }
     },
   })

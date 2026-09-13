@@ -16,9 +16,9 @@
         <el-input v-model="form.user_role_code" clearable :placeholder="t('角色标识')"/>
       </el-form-item>
 
-      <el-form-item label="菜单">
+      <el-form-item :label="t('菜单')">
         <div class="ms-tree-border">
-          <el-input v-model="filterText" placeholder="请输入菜单名称"/>
+          <el-input v-model="filterText" :placeholder="t('请输入菜单名称')"/>
           <el-tree
             ref="treeRef"
             :data="list"

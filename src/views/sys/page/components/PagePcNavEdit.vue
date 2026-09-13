@@ -19,9 +19,9 @@
         <el-select
           v-model="form.nav_position"
           class="ele-block"
-          placeholder="请选择导航位置">
-          <el-option label="头部" :value="0"/>
-          <el-option label="中部" :value="1"/>
+          :placeholder="t('请选择导航位置')">
+          <el-option :label="t('头部')" :value="0"/>
+          <el-option :label="t('中部')" :value="1"/>
         </el-select>
       </el-form-item>
       <el-form-item :label="t('下拉内容')" prop="nav_dropdown_menu">

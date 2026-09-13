@@ -18,7 +18,7 @@
           class="ele-block"
           clearable
           :disabled="isUpdate"
-          placeholder="请选择规格类型">
+          :placeholder="t('请选择规格类型')">
           <el-option :label="t('图片')" value="image"/>
           <el-option :label="t('文字')" value="text"/>
         </el-select>

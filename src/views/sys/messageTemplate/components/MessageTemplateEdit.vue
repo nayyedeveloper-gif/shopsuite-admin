@@ -92,41 +92,41 @@ export default defineComponent({
       message_type_options: [
         {
           value: 1,
-          label: '用户'
+          label: t('用户')
         },
         {
           value: 2,
-          label: '商家'
+          label: t('商家')
         },
         {
           value: 3,
-          label: '平台'
+          label: t('平台')
         },
       ],
       message_category_options: [
         {
           value: 0,
-          label: '默认消息'
+          label: t('默认消息')
         },
         {
           value: 1,
-          label: '公告消息'
+          label: t('公告消息')
         },
         {
           value: 2,
-          label: '订单消息'
+          label: t('订单消息')
         },
         {
           value: 3,
-          label: '商品消息'
+          label: t('商品消息')
         },
         {
           value: 4,
-          label: '余额卡券'
+          label: t('余额卡券')
         },
         {
           value: 5,
-          label: '服务信息'
+          label: t('服务信息')
         },
       ],
     })

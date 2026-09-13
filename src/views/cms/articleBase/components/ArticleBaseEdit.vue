@@ -168,11 +168,11 @@ export default defineComponent({
       isExpandTreeSelect:true,
       article_typeOptions: [
         {
-          label: '文章',
+          label: t('文章'),
           value: 1,
         },
         {
-          label: '公告',
+          label: t('公告'),
           value: 2,
         },
       ],

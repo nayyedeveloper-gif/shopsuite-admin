@@ -24,8 +24,8 @@
       <el-form-item :label="t('状态')" prop="user_state">
         <el-radio-group
           v-model="form.user_state">
-          <el-radio :label="1">已激活</el-radio>
-          <el-radio :label="2">未激活</el-radio>
+          <el-radio :label="1">{{ t('已激活') }}</el-radio>
+          <el-radio :label="2">{{ t('未激活') }}</el-radio>
         </el-radio-group>
       </el-form-item>
 
@@ -57,8 +57,8 @@
       <el-form-item :label="t('性别')" prop="user_gender">
         <el-radio-group
           v-model="form.user_gender">
-          <el-radio :label="1">男</el-radio>
-          <el-radio :label="2">女</el-radio>
+          <el-radio :label="1">{{ t('男') }}</el-radio>
+          <el-radio :label="2">{{ t('女') }}</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item :label="t('生日')" prop="user_birthday">

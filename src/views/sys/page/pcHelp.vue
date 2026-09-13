@@ -11,7 +11,7 @@
             style="width: 100%"
             @row-click="rowClick"
           >
-            <el-table-column align="center" label="分类名称" prop="cat_name">
+            <el-table-column align="center" :label="t('分类名称')" prop="cat_name">
               <template #default="{ row }">
                 <el-input v-model="row.cat_name"/>
               </template>
@@ -28,12 +28,12 @@
             :row-template="rowTemplateItem"
             style="width: 100%"
           >
-            <el-table-column align="center" label="标题" prop="title">
+            <el-table-column align="center" :label="t('标题')" prop="title">
               <template #default="{ row }">
                 <el-input v-model="row.title"/>
               </template>
             </el-table-column>
-            <el-table-column align="center" label="链接" prop="link">
+            <el-table-column align="center" :label="t('链接')" prop="link">
               <template #default="{ row }">
                 <el-input v-model="row.link"/>
               </template>
@@ -44,7 +44,7 @@
     </el-row>
 
     <el-row :gutter="20">
-      <el-button style="margin: auto" type="primary" @click="save">保存</el-button>
+      <el-button style="margin: auto" type="primary" @click="save">{{ t('保存') }}</el-button>
     </el-row>
   </div>
 </template>

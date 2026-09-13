@@ -10,9 +10,9 @@
             type="primary"
             @click="handleEdit()"
           >
-            添加字典分类
+            {{ t('添加字典分类') }}
           </el-button>
-          <el-input v-if="false" v-model="filterText" placeholder="请输入字典名称"/>
+          <el-input v-if="false" v-model="filterText" :placeholder="t('请输入字典名称')"/>
           <el-tree
             ref="treeRef"
             :data="data"
@@ -28,10 +28,10 @@
             <template #default="{ node, data }">
               <span class="dict-name" style="display: inline-block;padding: 8px;">{{ node.label }}</span>
               <el-button v-if="!data.children || data.children.length==0" v-permissions="{ permission: ['/manage/sys/dict/remove'] }" :disabled="data.dict_buildin" style="float: right; width:30px; margin-right: 10px" text type="primary" @click="handleDelete(data)">
-                删除
+                {{ t('删除') }}
               </el-button>
               <el-button v-if="data.dict_key!='root'" v-permissions="{ permission: ['/manage/sys/dict/edit'] }" style="float: right; width:30px;margin-right: 10px" text type="primary" @click="handleEdit(data)">
-                修改
+                {{ t('修改') }}
               </el-button>
             </template>
           </el-tree>
@@ -48,7 +48,7 @@
                 type="primary"
                 @click="handleItemEdit()"
               >
-                添加
+                {{ t('添加') }}
               </el-button>
             </ms-search-box-top-panel>
           </ms-search-box>
@@ -105,18 +105,18 @@
               show-overflow-tooltip
               width="100"
             />
-            <el-table-column align="center" fixed="right" label="操作" show-overflow-tooltip width="200">
+            <el-table-column align="center" fixed="right" :label="t('操作')" show-overflow-tooltip width="200">
               <template #default="{ row }">
                 <el-button v-permissions="{ permission: ['/manage/sys/dict/editItem'] }" text type="primary" @click="handleItemEdit(row)">
-                  编辑
+                  {{ t('编辑') }}
                 </el-button>
                 <el-button v-permissions="{ permission: ['/manage/sys/dict/removeItem'] }" :disabled="row.dict_item_buildin" text type="primary" @click="handleItemDelete(row)">
-                  删除
+                  {{ t('删除') }}
                 </el-button>
               </template>
             </el-table-column>
             <template #empty>
-              <el-empty class="ms-data-empty" description="暂无数据"/>
+              <el-empty class="ms-data-empty" :description="t('暂无数据')"/>
             </template>
           </el-table>
         </ms-card>
@@ -175,7 +175,7 @@ export default defineComponent({
     }
     const handleDelete = (row) => {
       if (row.dict_id) {
-        $confirm('你确定要删除当前项吗', null, async () => {
+        $confirm(t('你确定要删除当前项吗'), null, async () => {
           const {msg} = await doRemove({dict_id: row.dict_id})
           $message(msg, 'success')
           await getDictTree()
@@ -209,7 +209,7 @@ export default defineComponent({
     }
     const handleItemDelete = (row) => {
       if (row.dict_item_id) {
-        $confirm('你确定要删除当前项吗', null, async () => {
+        $confirm(t('你确定要删除当前项吗'), null, async () => {
           const {msg} = await doRemoveItem({dict_item_id: row.dict_item_id})
           $message(msg, 'success')
           await fetchItemData({dict_id: row.dict_id})
@@ -234,7 +234,7 @@ export default defineComponent({
           {
             dict_id: '',
             dict_key: 'root',
-            dict_name: '全部字典',
+            dict_name: t('全部字典'),
             children: data.items,
           },
         ]

@@ -108,41 +108,41 @@ export default defineComponent({
       points_kind_id_options : [
         {
           value: 1,
-          label: '获取积分'
+          label: t('获取积分')
         },
         {
           value: 2,
-          label: '消费积分'
+          label: t('消费积分')
         },
       ],
       points_type_id_options : [
         {
           value: 1,
-          label: '会员注册'
+          label: t('会员注册')
       },
         {
           value: 2,
-          label: '会员登录'
+          label: t('会员登录')
         },
         {
           value: 3,
-          label: '商品评论'
+          label: t('商品评论')
         },
         {
           value: 4,
-          label: '购买商品'
+          label: t('购买商品')
         },
         {
           value: 5,
-          label: '管理员操作'
+          label: t('管理员操作')
         },
         {
           value: 7,
-          label: '积分换购商品'
+          label: t('积分换购商品')
         },
         {
           value: 8,
-          label: '积分兑换代金券'
+          label: t('积分兑换代金券')
         },
       ]
     })

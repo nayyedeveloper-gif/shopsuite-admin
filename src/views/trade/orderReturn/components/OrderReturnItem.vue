@@ -331,11 +331,11 @@
         },
         return_flagOptions: [
           {
-            label: '不用退货',
+            label: t('不用退货'),
             value: 0,
           },
           {
-            label: '需要退货',
+            label: t('需要退货'),
             value: 1,
           },
         ],
@@ -431,7 +431,7 @@
 
       const refusedRules = reactive({
         return_store_message: [
-          { required: true, message: '请输入商家备注', trigger: 'blur' },
+          { required: true, message: t('请输入商家备注'), trigger: 'blur' },
         ],
       });
 
@@ -469,21 +469,21 @@
         return_flag: [
           {
             required: true,
-            message: '退货类型不能为空',
+            message: t('退货类型不能为空'),
             trigger: 'change',
           },
         ],
         return_store_message: [
           {
             required: true,
-            message: '请输入商家备注',
+            message: t('请输入商家备注'),
             trigger: 'blur',
           },
         ],
         receiving_address: [
           {
             required: true,
-            message: '请选择收货人',
+            message: t('请选择收货人'),
             trigger: 'blur',
           },
         ],

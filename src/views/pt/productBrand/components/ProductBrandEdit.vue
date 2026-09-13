@@ -38,8 +38,8 @@
       <el-form-item prop="brand_show_type">
         <el-radio-group
           v-model="form.brand_show_type">
-          <el-radio :label="1">图片</el-radio>
-          <el-radio :label="2">文字</el-radio>
+          <el-radio :label="1">{{ t('图片') }}</el-radio>
+          <el-radio :label="2">{{ t('文字') }}</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item :label="t('品牌LOGO')" prop="brand_image">
@@ -66,8 +66,8 @@
       <el-form-item v-if="false" :label="t('品牌申请')" prop="brand_apply">
         <el-radio-group
           v-model="form.brand_apply">
-          <el-radio :label="0">申请中</el-radio>
-          <el-radio :label="1">通过</el-radio>
+          <el-radio :label="0">{{ t('申请中') }}</el-radio>
+          <el-radio :label="1">{{ t('通过') }}</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item v-if="false" :label="t('背景图')" prop="brand_bg">

@@ -287,19 +287,19 @@
         options: [
           {
             value: 0,
-            label: "申请中",
+            label: t('申请中'),
           },
           {
             value: 1,
-            label: "提现通过",
+            label: t('提现通过'),
           },
           {
             value: 2,
-            label: "驳回",
+            label: t('驳回'),
           },
           {
             value: 3,
-            label: "打款完成",
+            label: t('打款完成'),
           },
         ],
         queryForm: {

@@ -619,7 +619,7 @@
             <!--          </el-col>-->
 
             <!--<el-col :span="24">-->
-            <!--<el-form-item label="消费者权益保障" label-width="130px" prop="contract_type_ids">-->
+            <!--<el-form-item :label="t('消费者权益保障')" label-width="130px" prop="contract_type_ids">-->
             <!--<el-checkbox-group-->
             <!--v-model="productForm.contract_type_ids"-->
             <!--&gt;-->
@@ -631,7 +631,7 @@
             <!--</el-col>-->
 
             <!--<el-col :span="12">-->
-            <!--<el-form-item label="配送方式" label-width="130px" prop="product_transport_id">-->
+            <!--<el-form-item :label="t('配送方式')" label-width="130px" prop="product_transport_id">-->
             <!--<el-checkbox-group-->
             <!--v-model="productForm.product_transport_id"-->
             <!--&gt;-->
@@ -1072,7 +1072,7 @@ export default defineComponent({
         product_name: [
           {
             required: true,
-            message: '请输入商品名称',
+            message: t('请输入商品名称'),
             trigger: 'blur',
           },
         ],
@@ -2126,7 +2126,7 @@ export default defineComponent({
     const save = () => {
       // 校验字段
       if (!state.productForm.product_name) {
-        $message('请输入商品名称！', 'error')
+        $message(t('请输入商品名称！'), 'error')
         return
       }
 
@@ -2149,12 +2149,12 @@ export default defineComponent({
       for (let i = 0; i < specData.length; i++) {
         /*
         if (specData[i].item_market_price <= 0 || specData[i].item_unit_price <= 0 || specData[i].item_quantity <= 0) {
-          $message('商品市场价、零售价或库存不能有负值或为0存在', 'warning');
+          $message(t('商品市场价、零售价或库存不能有负值或为0存在'), 'warning');
           return;
         }
         */
         if (specData[i].item_unit_price == 0 ||  !specData[i].item_unit_price) {
-          $message('商品零售价不能有负值或为0存在', 'warning');
+          $message(t('商品零售价不能有负值或为0存在'), 'warning');
           return;
         }
       }

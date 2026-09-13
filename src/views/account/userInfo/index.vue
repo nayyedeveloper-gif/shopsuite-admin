@@ -479,7 +479,7 @@ export default defineComponent({
 
     const exportCsv = () => {
       if (state.selectRows.length <= 0) {
-        $message('没有选中的数据！', 'error')
+        $message(t('没有选中的数据！'), 'error')
         return
       }
       const user_ids = state.selectRows.map((item) => item.user_id).join()

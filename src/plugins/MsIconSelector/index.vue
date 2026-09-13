@@ -2336,9 +2336,7 @@
               <el-input v-model="state.queryForm.title" />
             </el-form-item>
             <el-form-item label-width="0">
-              <el-button native-type="submit" type="primary" @click="queryData">
-                查询
-              </el-button>
+              <el-button native-type="submit" type="primary" @click="queryData">{{ t('查询') }}</el-button>
             </el-form-item>
           </el-form>
         </ms-search-box-top-panel>

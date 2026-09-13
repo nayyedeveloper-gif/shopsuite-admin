@@ -108,28 +108,28 @@ export default {
         logistics_time: [
           {
             required: true,
-            message: '请选择发货日期',
+            message: t('请选择发货日期'),
             trigger: 'blur',
           },
         ],
         logistics_id: [
           {
             required: true,
-            message: '请输入物流公司',
+            message: t('请输入物流公司'),
             trigger: 'blur',
           },
         ],
         ss_id: [
           {
             required: true,
-            message: '请输入发货地址',
+            message: t('请输入发货地址'),
             trigger: 'blur',
           },
         ],
         order_tracking_number: [
           {
             required: true,
-            message: '请输入物流单号',
+            message: t('请输入物流单号'),
             trigger: 'blur',
           },
         ],

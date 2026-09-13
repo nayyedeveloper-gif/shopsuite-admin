@@ -41,7 +41,7 @@ export default {
         fee_amount: [
           {
             required: true,
-            message: '请输入运费金额',
+            message: t('请输入运费金额'),
             trigger: 'blur',
           },
         ],

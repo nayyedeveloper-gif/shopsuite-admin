@@ -657,7 +657,7 @@ export default defineComponent({
         product_id: '',
         product_number: "",
       },
-      filename: '出库记录',
+      filename: t('出库记录'),
       autoWidth: true,
       bookType: 'xlsx',
     })
@@ -746,7 +746,7 @@ export default defineComponent({
       const obj = state.activityTypes.find(
         (item) => item.value === activity_type_id
       )
-      return obj ? obj.label : '无'
+      return obj ? obj.label: t('无')
     }
     const formatPaymentMet = (row) => {
       const payment_met_id = row.payment_met_id

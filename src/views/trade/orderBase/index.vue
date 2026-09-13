@@ -616,7 +616,7 @@ export default defineComponent({
         order_etime:"",
         search_code: "",
       },
-      filename: '订单列表',
+      filename: t('订单列表'),
       autoWidth: true,
       bookType: 'xlsx',
     })
@@ -894,7 +894,7 @@ export default defineComponent({
 
     const exportCsv = () => {
       if (state.selectRows.length <= 0) {
-        $message('没有选中的数据！', 'error')
+        $message(t('没有选中的数据！'), 'error')
         return
       }
 

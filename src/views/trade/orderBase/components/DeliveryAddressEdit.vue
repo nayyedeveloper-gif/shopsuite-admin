@@ -44,7 +44,7 @@
       <el-form-item :label="t('详细地址')" prop="ud_address">
         <el-input v-model="form.ud_address" clearable :placeholder="t('详细地址')"/>
       </el-form-item>
-      <el-form-item label="默认地址" prop="ud_is_default">
+      <el-form-item :label="t('默认地址')" prop="ud_is_default">
         <el-radio-group v-model="form.ud_is_default" size="medium">
           <el-radio
             v-for="(item, index) in ud_is_defaultOptions"

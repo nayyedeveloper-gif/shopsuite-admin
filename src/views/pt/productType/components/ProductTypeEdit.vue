@@ -77,8 +77,8 @@
       <el-form-item v-if="false" :label="t('是否草稿')" prop="type_is_draft">
         <el-radio-group
           v-model="form.type_is_draft">
-          <el-radio :label="1">草稿</el-radio>
-          <el-radio :label="0">发布</el-radio>
+          <el-radio :label="1">{{ t('草稿') }}</el-radio>
+          <el-radio :label="0">{{ t('发布') }}</el-radio>
         </el-radio-group>
       </el-form-item>
     </el-form>

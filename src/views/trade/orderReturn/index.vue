@@ -552,14 +552,14 @@ export default defineComponent({
       },
       return_add_range: [],
       returnStateList: settingsStore.getConfigs.return_state_list,
-      filename: '退单列表',
+      filename: t('退单列表'),
       autoWidth: true,
       bookType: 'xlsx',
     })
 
     const exportCsv = () => {
       if (state.selectRows.length <= 0) {
-        $message('没有选中的数据！', 'error')
+        $message(t('没有选中的数据！'), 'error')
         return
       }
 

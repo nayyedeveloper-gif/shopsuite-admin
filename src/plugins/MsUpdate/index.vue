@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { useSettingsStore } from '@/store/modules/settings'
+import { translate as t } from '@/i18n'
 
   const $sub: any = inject('$sub')
   const $message: any = inject('$message')
@@ -59,7 +60,7 @@
       <ms-icon icon="upload-cloud-2-fill" />
     </div>
     <ms-icon class="ms-update-cup" icon="cup-line" />
-    <h3>版本更新：</h3>
+    <h3>{{ t('版本更新：') }}</h3>
     <p>
       {{ state.title }}
       V{{ state.version }}

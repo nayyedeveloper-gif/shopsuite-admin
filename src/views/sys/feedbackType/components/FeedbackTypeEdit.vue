@@ -69,11 +69,11 @@ export default defineComponent({
       feedback_type_genus_options: [
         {
           value: 1,
-          label: '会员所属'
+          label: t('会员所属')
         },
         {
           value: 2,
-          label: '经销商所属'
+          label: t('经销商所属')
         },
       ],
     })

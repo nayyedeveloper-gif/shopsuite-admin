@@ -223,7 +223,7 @@ export default defineComponent({
       },
       loading : false,
       userList: [],
-      filename: '积分记录',
+      filename: t('积分记录'),
       autoWidth: true,
       bookType: 'xlsx',
     })

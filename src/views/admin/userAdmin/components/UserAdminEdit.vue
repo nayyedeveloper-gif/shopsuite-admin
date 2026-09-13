@@ -116,7 +116,7 @@ export default defineComponent({
         if (valid) {
           if(state.form.role_id == 3) {
             if(state.form.chain_id == 0) {
-              $message("请选择门店",'error')
+              $message(t('请选择门店'),'error')
               return false;
             }
           }

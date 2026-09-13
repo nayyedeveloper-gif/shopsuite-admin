@@ -252,7 +252,7 @@ export default defineComponent({
     }
     const save = () => {
       if (state.itemList.length === 0) {
-        $message('请先添加商品', 'warning')
+        $message(t('请先添加商品'), 'warning')
         return
       }
         state['formRef'].validate(async (valid) => {
@@ -294,7 +294,7 @@ export default defineComponent({
       if (state.form.buyer_user_id) {
         state.addressRef.showEdit(state.form.buyer_user_id)
       } else {
-        $message('请先选择买家用户名称', 'warning')
+        $message(t('请先选择买家用户名称'), 'warning')
       }
     }
 
@@ -358,7 +358,7 @@ export default defineComponent({
 
         if (!isNumbers(row.cart_quantity)) {
           row.cart_quantity = 1
-          $message('数量不能为负数且不能输入中文', 'warning')
+          $message(t('数量不能为负数且不能输入中文'), 'warning')
           return
         }
       }

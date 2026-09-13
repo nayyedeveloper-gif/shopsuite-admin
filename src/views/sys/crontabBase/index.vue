@@ -2,9 +2,7 @@
   <div class="crontab-base-container">
     <ms-search-box>
       <div style="margin-bottom: 12px">
-        <p>
-          crontab命令常见于Unix和Linux中用于设置周期性被执行的指令.
-        </p>
+        <p>{{ t('crontab命令常见于Unix和Linux中用于设置周期性被执行的指令.') }}</p>
       </div>
     </ms-search-box>
 

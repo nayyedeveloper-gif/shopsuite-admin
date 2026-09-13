@@ -3,7 +3,7 @@
     <el-autocomplete
       v-model="key"
       :fetch-suggestions="querySearchAsync"
-      placeholder="请输入内容"
+      :placeholder="t('请输入内容')"
       :style="{ width: '100%' }"
       @change="change"
       @select="getAddress"
@@ -36,6 +36,7 @@
 
 <script>
 import {ref, watch} from 'vue';
+import { translate as t } from '@/i18n'
 import {useSettingsStore} from "@/store/modules/settings";
 import {BaiduMap, BmLocalSearch, BmMarker, BmLabel} from 'vue-baidu-map-3x'
 
@@ -166,6 +167,7 @@ export default {
       handler,
       getClickInfo,
       syncCenterAndZoom,
+      t,
     };
   },
 };

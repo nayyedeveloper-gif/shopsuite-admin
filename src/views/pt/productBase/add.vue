@@ -204,7 +204,7 @@ size="medium"
         if (category != null) {
           handleEdit(category)
         } else {
-          $message("请选择商品分类", 'error')
+          $message(t('请选择商品分类'), 'error')
         }
       }
 

@@ -23,25 +23,25 @@
           v-model="form.config_datatype"
           class="ele-block"
           clearable
-          placeholder="请选择配置类型">
-          <el-option label="只读文本" value="readonly"/>
-          <el-option label="数字" value="number"/>
-          <el-option label="单行文本" value="text"/>
-          <el-option label="多行文本" value="textarea"/>
-          <el-option label="数组" value="array"/>
-          <el-option label="密码" value="password"/>
-          <el-option label="单选框" value="radio"/>
-          <el-option label="复选框" value="checkbox"/>
-          <el-option label="下拉框" value="select"/>
-          <el-option label="字体图标" value="icon"/>
-          <el-option label="日期" value="date"/>
-          <el-option label="时间" value="datetime"/>
-          <el-option label="单张图片" value="image"/>
-          <el-option label="多张图片" value="images"/>
-          <el-option label="单个文件" value="file"/>
-          <el-option label="多个文件" value="files"/>
-          <el-option label="富文本编辑器" value="ueditor"/>
-          <el-option label="地区选择器" value="area"/>
+          :placeholder="t('请选择配置类型')">
+          <el-option :label="t('只读文本')" value="readonly"/>
+          <el-option :label="t('数字')" value="number"/>
+          <el-option :label="t('单行文本')" value="text"/>
+          <el-option :label="t('多行文本')" value="textarea"/>
+          <el-option :label="t('数组')" value="array"/>
+          <el-option :label="t('密码')" value="password"/>
+          <el-option :label="t('单选框')" value="radio"/>
+          <el-option :label="t('复选框')" value="checkbox"/>
+          <el-option :label="t('下拉框')" value="select"/>
+          <el-option :label="t('字体图标')" value="icon"/>
+          <el-option :label="t('日期')" value="date"/>
+          <el-option :label="t('时间')" value="datetime"/>
+          <el-option :label="t('单张图片')" value="image"/>
+          <el-option :label="t('多张图片')" value="images"/>
+          <el-option :label="t('单个文件')" value="file"/>
+          <el-option :label="t('多个文件')" value="files"/>
+          <el-option :label="t('富文本编辑器')" value="ueditor"/>
+          <el-option :label="t('地区选择器')" value="area"/>
         </el-select>
       </el-form-item>
       <el-form-item :label="t('配置项')" prop="config_options">

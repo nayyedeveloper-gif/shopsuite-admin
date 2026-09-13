@@ -191,7 +191,7 @@
             </el-form-item>
           </el-form>
           <div style="margin-left: 150px;">
-            <el-button :loading="loading" type="primary" @click="save">保存更改</el-button>
+            <el-button :loading="loading" type="primary" @click="save">{{ t('保存更改') }}</el-button>
           </div>
         </el-tab-pane>
       </el-tabs>

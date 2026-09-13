@@ -686,7 +686,7 @@ export default defineComponent({
 
         if (!isNumbers(row.product_order)) {
           row.product_order = 0
-          $message('排序值不能为负数且不能输入中文', 'warning')
+          $message(t('排序值不能为负数且不能输入中文'), 'warning')
           return
         }
 
@@ -713,7 +713,7 @@ export default defineComponent({
 
         if (!isNumbers(row.product_commission_rate)) {
           row.product_commission_rate = 0
-          $message('佣金比例不能为负数且不能输入中文', 'warning')
+          $message(t('佣金比例不能为负数且不能输入中文'), 'warning')
           return
         }
 

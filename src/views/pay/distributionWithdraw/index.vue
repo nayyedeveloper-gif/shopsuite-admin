@@ -162,11 +162,11 @@
         options: [
           {
             value: false,
-            label: "申请中",
+            label: t('申请中'),
           },
           {
             value: true,
-            label: "提现通过",
+            label: t('提现通过'),
           },
         ],
         layout: 'total, sizes, prev, pager, next, jumper',
