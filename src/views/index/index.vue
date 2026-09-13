@@ -288,9 +288,9 @@ export default defineComponent({
     const settingsStore = useSettingsStore()
     const { echartsGraphic2 } = storeToRefs(settingsStore)
     const state = reactive({
-      dayTimeOne: "30天",
-      dayTimeTwo: "30天",
-      dayTimeThree: "30天",
+      dayTimeOne: t('30天'),
+      dayTimeTwo: t('30天'),
+      dayTimeThree: t('30天'),
       saleConfig: {
         startVal: 0,
         endVal: 0,
@@ -403,7 +403,7 @@ export default defineComponent({
           trigger: 'axis',
         },
         legend: {
-          data: ['订单数量', '成交金额'],
+          data: [t('订单数量'), t('成交金额')],
         },
         grid: {
           right: '4%',
@@ -591,7 +591,7 @@ export default defineComponent({
           trigger: 'axis',
         },
         legend: {
-          data: ['提交订单的客户数'],
+          data: [t('提交订单的客户数')],
         },
         grid: {
           right: '4%',
@@ -979,7 +979,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取销售额
+     * Get sales amount
      * @returns {Promise<void>}
      */
     const getSalesAmountFun = async () => {
@@ -989,7 +989,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取用户访问量
+     * Get user visit count
      * @returns {Promise<void>}
      */
     const getVisitorFun = async () => {
@@ -999,7 +999,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取订单量
+     * Get order count
      * @returns {Promise<void>}
      */
     const getOrderNumFun = async () => {
@@ -1009,7 +1009,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取新增用户
+     * Get new users
      * @returns {Promise<void>}
      */
     const getRegUserFun = async () => {
@@ -1019,7 +1019,7 @@ export default defineComponent({
     }
 
     /**
-     * 购买商品顾客统计
+     * Purchase customer statistics
      * @returns {Promise<void>}
      */
     const getOrderCustomerNumTimelineFun = async (days) => {
@@ -1053,7 +1053,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取统计数据
+     * Get statistics data
      * @param days
      * @returns {Promise<void>}
      */
@@ -1091,7 +1091,7 @@ export default defineComponent({
     }
 
     /**
-     * 订单销售金额对比图
+     * Order sales amount comparison chart
      * @param days
      * @returns {Promise<void>}
      */

@@ -127,7 +127,7 @@ export default defineComponent({
             }
             // Resolve seller role from role list (user_role_code=seller), never hardcode 1005
             const sellerRole = (state.roleOptions || []).find(
-              (r) => r.user_role_code === 'seller' || r.user_role_name === '商家' || r.user_role_name === 'Seller'
+              (r) => r.user_role_code === 'seller' || r.user_role_name === 'Merchant' || r.user_role_name === 'Seller'
             )
             if (sellerRole && sellerRole.user_role_id) {
               state.form.user_role_id = sellerRole.user_role_id

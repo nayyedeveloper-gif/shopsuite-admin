@@ -48,7 +48,7 @@
           tag_ids: [],
           user_ids: '',
         },
-        title: '批量设置标签',
+        title: t('批量设置标签'),
         dialogFormVisible: false,
         tagGroupTreeList: [],
         isExpandTreeSelect: true,

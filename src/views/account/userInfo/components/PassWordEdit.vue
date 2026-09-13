@@ -36,7 +36,7 @@
           user_id: '',
         },
 
-        title: '更改密码',
+        title: t('更改密码'),
         dialogFormVisible: false,
       })
 

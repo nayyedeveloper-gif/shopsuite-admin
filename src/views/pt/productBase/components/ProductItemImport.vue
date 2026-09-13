@@ -62,7 +62,7 @@
         },
         form: {
         },
-        title: '批量修改价格、库存',
+        title: t('批量修改价格、库存'),
         dialogFormVisible: false,
         // 提交状态
         loading: false,
@@ -92,7 +92,7 @@
           })
           link.style.display = 'none'
           link.href = URL.createObjectURL(blob)
-          link.download = '导入批量修改模版.xlsx'
+          link.download = t('导入批量修改模版.xlsx')
           document.body.appendChild(link)
           link.click()
           document.body.removeChild(link)

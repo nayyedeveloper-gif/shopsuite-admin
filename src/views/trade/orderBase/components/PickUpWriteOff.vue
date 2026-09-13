@@ -298,7 +298,7 @@ export default defineComponent({
 
         columns.forEach((column, index) => {
           if (index === 1) {
-            sums[index] = '合计'
+            sums[index] = t('合计')
             return
           }
           if (index === 6 || index === 5) {

@@ -398,7 +398,7 @@
 
       //审核不通过 相关
       const refusedOpen = () => {
-        state.refusedTitle = state.data.return_id + ' 不通过审核'
+        state.refusedTitle = state.data.return_id + ' ' + t(' 不通过审核')
         state.refusedDialog = true
       }
 
@@ -545,10 +545,10 @@
       function getSummaries(param) {
         const { columns, data } = param
         const sums = []
-        sums[0] = '申请总额'
+        sums[0] = t('申请总额')
         columns.forEach((column, index) => {
           if (index === 0) {
-            sums[index] = '申请总额'
+            sums[index] = t('申请总额')
             return
           }
           if (index === 4 || index === 5) {

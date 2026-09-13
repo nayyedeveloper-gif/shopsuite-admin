@@ -95,7 +95,7 @@ export default defineComponent({
     )
 
     /**
-     * 重写自定义配置执行逻辑
+     * Override custom config execution logic
      */
     const editorOption = Object.assign(
       {},

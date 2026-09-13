@@ -51,7 +51,7 @@
           user_ids: '',
         },
         vouchers: [],
-        title: '批量发放优惠券',
+        title: t('批量发放优惠券'),
         dialogFormVisible: false,
 
       })

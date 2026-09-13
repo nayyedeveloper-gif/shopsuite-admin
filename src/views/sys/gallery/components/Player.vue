@@ -56,18 +56,18 @@ export default defineComponent({
     }
 
     const onPlay = () => {
-      console.log('播放')
+      console.log('play')
       console.log(ev)
     }
     const onPause = (ev) => {
-      console.log(ev, '暂停')
+      console.log(ev, 'pause')
     }
 
     const onTimeupdate = (ev) => {
-      console.log(ev, '时间更新')
+      console.log(ev, 'timeupdate')
     }
     const onCanplay = (ev) => {
-      console.log(ev, '可以播放')
+      console.log(ev, 'canplay')
     }
 
     return {

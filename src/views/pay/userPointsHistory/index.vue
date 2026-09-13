@@ -230,7 +230,7 @@ export default defineComponent({
 
     const exportCsv = () => {
       import('@/utils/excel').then((excel) => {
-        const tHeader = ['编号', '类型', '积分类型', '会员编号','会员昵称','可用积分', '当前积分', '描述', '关联单号', '创建时间']
+        const tHeader = [t('编号'), t('类型'), t('积分类型'), t('会员编号'),t('会员昵称'),t('可用积分'), t('当前积分'), t('描述'), t('关联单号'), t('创建时间')]
         const filterVal = ['points_log_id', 'points_kind_id', 'points_type_id', 'user_id','user_nickname','points_log_points', 'user_points', 'points_log_desc', 'ext_id', 'points_log_time']
 
         const items = state.items

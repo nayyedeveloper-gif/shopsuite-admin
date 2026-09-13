@@ -11,7 +11,7 @@
                 type="danger"
                 @click="cleanCache()"
               >
-                {{ buttonLoading ? `请等待 ${countdown} 秒` : t('清理缓存') }}
+                {{ buttonLoading ? t('请等待') + ` ${countdown} ` + t('秒') : t('清理缓存') }}
               </el-button>
               <span class="text">
                 {{ t('谨慎操作：此缓存接口为系统性能提供重要支持，请确保在清理前已确认无误，以避免不必要的数据丢失和性能下降') }}

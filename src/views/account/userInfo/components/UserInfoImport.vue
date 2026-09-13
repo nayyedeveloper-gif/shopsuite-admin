@@ -62,7 +62,7 @@
         },
         form: {
         },
-        title: '导入用户信息',
+        title: t('导入用户信息'),
         dialogFormVisible: false,
         // 提交状态
         loading: false,
@@ -92,7 +92,7 @@
           })
           link.style.display = 'none'
           link.href = URL.createObjectURL(blob)
-          link.download = '用户信息模版.xlsx'
+          link.download = t('用户信息模版.xlsx')
           document.body.appendChild(link)
           link.click()
           document.body.removeChild(link)

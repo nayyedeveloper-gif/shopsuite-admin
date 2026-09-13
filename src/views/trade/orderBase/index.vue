@@ -272,10 +272,10 @@
         width="200"
       >
         <template #default="{ row }">
-          <span v-if="row.delivery_time_name != '正常配送'" style="color: red">
+          <span v-if="row.delivery_time_name != t('正常配送')" style="color: red">
             {{ row.delivery_time_name }}
           </span>
-          <span v-if="row.delivery_time_name == '正常配送'">
+          <span v-if="row.delivery_time_name == t('正常配送')">
             {{ row.delivery_time_name }}
           </span>
         </template>
@@ -899,24 +899,24 @@ export default defineComponent({
       }
 
       import('@/utils/excel').then((excel) => {
-        const tHeader = ['订单编号', '订单标题', '客户名称', '应付金额', '下单时间', '配送方式', '订单状态', '退款状态', '发货状态', '付款状态', '收货状态', '买家留言', '支付方式', '活动类型']
+        const tHeader = [t('订单编号'), t('订单标题'), t('客户名称'), t('应付金额'), t('下单时间'), t('配送方式'), t('订单状态'), t('退款状态'), t('发货状态'), t('付款状态'), t('收货状态'), t('买家留言'), t('支付方式'), t('活动类型')]
         const filterVal = ['order_id', 'order_title', 'user_nickname', 'order_payment_amount', 'order_time', 'delivery_type_id', 'order_state_id', 'order_refund_status', 'order_is_shipped', 'order_is_paid', 'order_is_received', 'order_message', 'payment_type_id', 'activity_type_id']
 
-        const tHeaderIndex = tHeader.indexOf('退款状态') + 1;
+        const tHeaderIndex = tHeader.indexOf(t('退款状态')) + 1;
         const filterValIndex = filterVal.indexOf('order_refund_status') + 1;
 
         if (ifReview.value) {
-          tHeader.splice(tHeaderIndex, 0, '订单审核');
+          tHeader.splice(tHeaderIndex, 0, t('订单审核'));
           filterVal.splice(filterValIndex, 0, 'order_is_review');
         }
 
         if (ifFinanceReview.value) {
-          tHeader.splice(tHeaderIndex, 0, '财务状态');
+          tHeader.splice(tHeaderIndex, 0, t('财务状态'));
           filterVal.splice(filterValIndex, 0, 'order_finance_review');
         }
 
         if (ifPickingReview.value) {
-          tHeader.splice(tHeaderIndex, 0, '出库状态');
+          tHeader.splice(tHeaderIndex, 0, t('出库状态'));
           filterVal.splice(filterValIndex, 0, 'order_is_out');
         }
 

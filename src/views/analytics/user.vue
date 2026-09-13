@@ -127,7 +127,7 @@ export default defineComponent({
     const settingsStore = useSettingsStore()
     const {echartsGraphic2} = storeToRefs(settingsStore)
     const state = reactive({
-      userTime: '30天',
+      userTime: t('30天'),
       userNumConfig: {
         startVal: 0,
         endVal: 0,
@@ -197,7 +197,7 @@ export default defineComponent({
           trigger: 'axis',
         },
         legend: {
-          data: ['新增用户数', '访客数', '成交用户数'],
+          data: [t('新增用户数'), t('访客数'), t('成交用户数')],
         },
         grid: {
           right: '4%',
@@ -328,7 +328,7 @@ export default defineComponent({
     }
 
     /**
-     * 购买商品顾客统计范围
+     * Purchase customer statistics范围
      * @param days
      * @returns {Promise<void>}
      */
@@ -355,7 +355,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取用户数
+     * Get user count
      * @returns {Promise<void>}
      */
     const getUserNumFun = async (params) => {
@@ -366,7 +366,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取用户量
+     * Get user volume
      *
      * @returns {Promise<void>}
      */
@@ -378,7 +378,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取访问量
+     * Get visit count
      *
      * @returns {Promise<void>}
      */
@@ -390,7 +390,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取新增用户数
+     * Get new user count
      * @returns {Promise<void>}
      */
     const getRegUserNumFun = async (params) => {
@@ -401,7 +401,7 @@ export default defineComponent({
     }
 
     /**
-     * 购买商品顾客统计
+     * Purchase customer statistics
      * @param days
      * @returns {Promise<void>}
      */
@@ -434,7 +434,7 @@ export default defineComponent({
     }
 
     /**
-     * 购买商品顾客统计
+     * Purchase customer statistics
      * @param days
      * @returns {Promise<void>}
      */

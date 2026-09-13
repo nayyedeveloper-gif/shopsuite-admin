@@ -197,7 +197,7 @@ export default defineComponent({
           trigger: 'axis',
         },
         legend: {
-          data: ['订单数量', '成交金额', '退单数量', '退单金额'],
+          data: [t('订单数量'), t('成交金额'), t('退单数量'), t('退单金额')],
         },
         grid: {
           right: '4%',
@@ -315,7 +315,7 @@ export default defineComponent({
 
 
     /**
-     * 总额
+     * Total amount
      *
      * @returns {Promise<void>}
      */
@@ -327,7 +327,7 @@ export default defineComponent({
     }
 
     /**
-     * 退款总额
+     * Total refund
      *
      * @returns {Promise<void>}
      */
@@ -339,7 +339,7 @@ export default defineComponent({
     }
 
     /**
-     * 订单数
+     * Order count
      *
      * @returns {Promise<void>}
      */
@@ -351,7 +351,7 @@ export default defineComponent({
     }
 
     /**
-     * 退款单数
+     * Return order count
      *
      * @returns {Promise<void>}
      */
@@ -364,7 +364,7 @@ export default defineComponent({
 
 
     /**
-     * 订单销售金额对比图
+     * Order sales amount comparison chart
      * @param days
      * @returns {Promise<void>}
      */

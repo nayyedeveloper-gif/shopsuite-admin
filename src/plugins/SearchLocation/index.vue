@@ -136,7 +136,7 @@ export default {
 
 
     /***
-     * 地图点击事件。
+     * Map click event.
      */
     const getClickInfo = (e) => {
       state.mapCenter.lng = e.point.lng

@@ -223,7 +223,7 @@ export default {
         };
       } else {
         event.target.value = "";
-        $message(t('请上传') + props.fileExt + "格式图片", "error")
+        $message(t('请上传') + props.fileExt + t('格式图片'), "error")
       }
     }
 

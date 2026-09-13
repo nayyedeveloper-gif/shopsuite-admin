@@ -1236,7 +1236,7 @@ export default defineComponent({
       data: '',
       editRef: null,
       activeName: '1',
-      topTitle: '用户详情',
+      topTitle: t('用户详情'),
       dialogFormVisible: false,
       user_id: '',
       layout: 'total, sizes, prev, pager, next, jumper',

@@ -76,7 +76,7 @@
               v-if="assist.assist_format === 'select'"
               v-model="assistArr[assist.assist_id]"
               clearable
-              :placeholder="'请选择' + assist.assist_name"
+              :placeholder="t('请选择') + assist.assist_name"
               :style="{ width: '50%' }"
             >
               <el-option
@@ -102,7 +102,7 @@
               v-if="assist.assist_format === 'text'"
               v-model="assistArr[assist.assist_id]"
               clearable
-              :placeholder="'请输入内容' + assist.assist_name"
+              :placeholder="t('请输入内容') + assist.assist_name"
               :style="{ width: '50%' }"
             />
           </el-form-item>
@@ -1456,13 +1456,13 @@ export default defineComponent({
     }
     const editSpecItem = (row) => {
       if (row) {
-        state.specTitle = '编辑'
+        state.specTitle = t('编辑')
         state.isItemUpdate = true
         state.specItemForm = Object.assign({}, row)
         state.editVisible = true
         return
       }
-      state.specTitle = '新增'
+      state.specTitle = t('新增')
       state.isItemUpdate = false
       state.specItemForm = {
         spec_id: state.specId,

@@ -564,7 +564,7 @@ export default defineComponent({
       }
 
       import('@/utils/excel').then((excel) => {
-        const tHeader = ['退单号', '服务类型', '订单编号', '退款金额', '积分部分', '买家编号', '添加时间', '退款理由编号', '买家退货备注', '卖家处理状态', '退款完成', '退货类型', '退货类型', '申请类型', '商家处理时间', '商家备注', '退还佣金']
+        const tHeader = [t('退单号'), t('服务类型'), t('订单编号'), t('退款金额'), t('积分部分'), t('买家编号'), t('添加时间'), t('退款理由编号'), t('买家退货备注'), t('卖家处理状态'), t('退款完成'), t('退货类型'), t('退货类型'), t('申请类型'), t('商家处理时间'), t('商家备注'), t('退还佣金')]
         const filterVal = ['return_id', 'service_type_id', 'order_id', 'return_refund_amount', 'return_refund_point', 'buyer_user_id', 'return_add_time', 'return_reason_id', 'return_buyer_message', 'return_state_id', 'return_is_paid', 'return_is_shipping_fee', 'return_flag', 'return_type', 'return_store_time', 'return_store_message', 'return_commision_fee']
 
         const items = state.selectRows

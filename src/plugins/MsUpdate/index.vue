@@ -13,7 +13,7 @@ import { translate as t } from '@/i18n'
     updateTime: __APP_INFO__['lastBuildTime'],
     dialogVisible: false,
     loading: false,
-    button: '立即升级',
+    button: t('立即升级'),
   })
 
   onBeforeMount(() => {
@@ -30,16 +30,16 @@ import { translate as t } from '@/i18n'
   }
 
   const save = () => {
-    state.button = '正在更新'
+    state.button = t('正在更新')
     state.loading = true
     $message(
-      '正在更新，预计10S后更新完成',
+      t('正在更新，预计10S后更新完成'),
       'success',
       'ms-hey-message-success'
     )
     setTimeout(() => {
       state.loading = false
-      state.button = '更新完成'
+      state.button = t('更新完成')
     }, 1000 * 6)
 
     setTimeout(() => {
@@ -66,10 +66,10 @@ import { translate as t } from '@/i18n'
       V{{ state.version }}
     </p>
     <p>
-      更新时间：最近更新
+      {{ t('更新时间：最近更新') }}
       <!-- {{ updateTime }} -->
     </p>
-    <p v-text="`${'如遇更新失败请手动点击Ctrl + F5重试'}`"></p>
+    <p v-text="t('如遇更新失败请手动点击Ctrl + F5重试')"></p>
     <template #footer>
       <el-button
         v-loading="state.loading"

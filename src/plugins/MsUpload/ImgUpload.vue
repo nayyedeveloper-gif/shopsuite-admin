@@ -118,7 +118,7 @@ export default {
     watch(
       () => props.modelValue,
       (newVal, oldVal) => {
-        console.log('监听基本类型数据modelValue')
+        console.log('watch modelValue')
         console.log('new', newVal)
         console.log('old', oldVal)
 
@@ -266,7 +266,7 @@ export default {
         };
       } else {
         event.target.value = "";
-        $message(t('请上传') + props.fileExt + "格式图片", "error")
+        $message(t('请上传') + props.fileExt + t('格式图片'), "error")
       }
     }
 

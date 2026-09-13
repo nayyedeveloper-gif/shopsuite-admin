@@ -312,7 +312,7 @@
         state.loading = false;
       }
       /**
-       * Tab点击事件
+       * Tab click event
        * @param tab
        * @param event
        */

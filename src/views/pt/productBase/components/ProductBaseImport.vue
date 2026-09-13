@@ -62,7 +62,7 @@
         },
         form: {
         },
-        title: '导入单规格商品',
+        title: t('导入单规格商品'),
         dialogFormVisible: false,
         // 提交状态
         loading: false,
@@ -92,7 +92,7 @@
           })
           link.style.display = 'none'
           link.href = URL.createObjectURL(blob)
-          link.download = '导入单规格商品模版.xlsx'
+          link.download = t('导入单规格商品模版.xlsx')
           document.body.appendChild(link)
           link.click()
           document.body.removeChild(link)

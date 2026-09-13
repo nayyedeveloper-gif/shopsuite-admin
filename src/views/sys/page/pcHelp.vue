@@ -72,9 +72,9 @@ export default defineComponent({
         switch: true,
         items: []
       },
-      form: [{cat_name: "帮助", switch: true, items: [{id: 1001, title: "帮助", link: '', switch: true}]}, {
-        cat_name: "帮助",
-        items: [{id: 1001, title: "帮助", link: '', switch: true}]
+      form: [{cat_name: t('帮助'), switch: true, items: [{id: 1001, title: t('帮助'), link: '', switch: true}]}, {
+        cat_name: t('帮助'),
+        items: [{id: 1001, title: t('帮助'), link: '', switch: true}]
       }],
       rowTemplateItem: {
         id: '',
@@ -82,7 +82,7 @@ export default defineComponent({
         link: '',
         switch: true
       },
-      formItem: [{id: 1001, title: "帮助", link: '', switch: true}],
+      formItem: [{id: 1001, title: t('帮助'), link: '', switch: true}],
 
 
       listLoading: true,

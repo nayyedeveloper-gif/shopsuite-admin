@@ -664,7 +664,7 @@ export default defineComponent({
 
     const exportCsv = (items) => {
       import('@/utils/excel').then((excel) => {
-        const tHeader = ['图片', '商品名称', '出库价格', '出库数量', '小计']
+        const tHeader = [t('图片'), t('商品名称'), t('出库价格'), t('出库数量'), t('小计')]
         const filterVal = ['order_item_image','product_item_name', 'bill_item_unit_price', 'bill_item_quantity', 'bill_item_subtotal']
 
         const data = formatJson(filterVal, items)
@@ -712,7 +712,7 @@ export default defineComponent({
     }
     const getTitleName = (data) => {
       if (data.logistics.logistics_enable === 1) {
-        return '发货记录'
+        return t('发货记录')
       } else if (
         data.logistics.order_logistics_id &&
         data.logistics.logistics_enable === 0
@@ -765,7 +765,7 @@ export default defineComponent({
 
       columns.forEach((column, index) => {
         if (index === 1) {
-          sums[index] = '合计'
+          sums[index] = t('合计')
           return
         }
         if (index === 6 || index === 7) {

@@ -332,7 +332,7 @@ export default defineComponent({
     const settingsStore = useSettingsStore()
     const {echartsGraphic2} = storeToRefs(settingsStore)
     const state = reactive({
-      interviewTime: '30天',
+      interviewTime: t('30天'),
       productNumConfig: {
         startVal: 0,
         endVal: 0,
@@ -403,7 +403,7 @@ export default defineComponent({
           trigger: 'axis',
         },
         legend: {
-          data: ['商品浏览量', '商品访客数', '商品销量'],
+          data: [t('商品浏览量'), t('商品访客数'), t('商品销量')],
         },
         grid: {
           right: '4%',
@@ -563,7 +563,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取商品数量
+     * Get product count
      * @returns {Promise<void>}
      */
     const getProductNumFun = async (params) => {
@@ -574,7 +574,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取商品访问数量
+     * Get product visit count
      * @returns {Promise<void>}
      */
     const getAccessItemNumFun = async (params) => {
@@ -585,7 +585,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取商品用户访问数量
+     * Get product user visit count
      * @returns {Promise<void>}
      */
     const getAccessItemUserNumFun = async (params) => {
@@ -596,7 +596,7 @@ export default defineComponent({
     }
 
     /**
-     * 获取商品销量
+     * Get product sales
      * @returns {Promise<void>}
      */
     const getOrderItemNumFun = async (params) => {
@@ -607,7 +607,7 @@ export default defineComponent({
     }
 
     /**
-     * 购买商品顾客统计
+     * Purchase customer statistics
      * @param days
      * @returns {Promise<void>}
      */
@@ -641,7 +641,7 @@ export default defineComponent({
     }
 
     /**
-     * 购买商品顾客统计
+     * Purchase customer statistics
      * @param days
      * @returns {Promise<void>}
      */
@@ -670,7 +670,7 @@ export default defineComponent({
     }
 
     /**
-     * 商品浏览排行
+     * Product browsing ranking
      */
     const getListAccessItem = async () => {
 
